@@ -4,7 +4,7 @@ description: "Plateforme, expédition, fiches produits, paiement : le guide pour
 pubDate: 2026-06-20
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/creer-boutique-en-ligne-vin.jpg
-heroImageAlt: "Créer une boutique en ligne pour vendre son vin — VONAV"
+heroImageAlt: "Ordinateur portable et bouteille de vin sur une table en bois, dans un caveau en pierre"
 ogImage: "/og/creer-boutique-en-ligne-vin.jpg"
 tags: ["Vendre son vin en direct", "Vignerons", "E-commerce"]
 ---

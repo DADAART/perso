@@ -4,7 +4,7 @@ description: "Votre fiche d'établissement Google est souvent le premier contact
 pubDate: 2026-06-22
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/google-business-profile-domaine-gite-drome.jpg
-heroImageAlt: "Google Business Profile pour un domaine ou un gîte en Drôme"
+heroImageAlt: "Entrée accueillante d'un domaine viticole de la Drôme, panneau en bois et vignes au soleil"
 ogImage: "/og/google-business-profile-domaine-gite-drome.jpg"
 tags: ["Google Business Profile", "SEO local", "Drôme"]
 ---

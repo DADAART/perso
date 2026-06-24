@@ -4,7 +4,7 @@ description: "Fiche Google, mots-clés locaux, pages géolocalisées, avis : com
 pubDate: 2026-06-18
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/seo-local-drome-guide.jpg
-heroImageAlt: "SEO local en Drôme — guide VONAV"
+heroImageAlt: "Campagne de la Drôme : vignes, village aux toits de tuiles et collines de la vallée du Rhône"
 ogImage: "/og/seo-local-drome-guide.jpg"
 tags: ["SEO local", "Drôme", "Référencement"]
 ---

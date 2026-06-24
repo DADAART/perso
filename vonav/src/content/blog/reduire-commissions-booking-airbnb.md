@@ -4,7 +4,7 @@ description: "Les plateformes prélèvent souvent 15 à 18 % de vos nuitées. Vo
 pubDate: 2026-06-16
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/reduire-commissions-booking-airbnb.jpg
-heroImageAlt: "Réservation directe pour gîtes et chambres d'hôtes — VONAV"
+heroImageAlt: "Chambre d'hôtes provençale chaleureuse, fenêtre ouverte sur une vallée verdoyante en Drôme"
 ogImage: "/og/reduire-commissions-booking-airbnb.jpg"
 tags: ["Réservation directe", "Hébergeurs", "Gîtes", "Drôme"]
 ---

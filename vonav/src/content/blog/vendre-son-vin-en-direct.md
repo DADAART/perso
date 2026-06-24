@@ -4,7 +4,7 @@ description: "Le négoce fixe vos prix. Voici comment un domaine de la Drôme pe
 pubDate: 2026-06-10
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/vendre-son-vin-en-direct.jpg
-heroImageAlt: "Vendre son vin en direct — VONAV, studio digital en Drôme"
+heroImageAlt: "Mains d'un vigneron rangeant des bouteilles de vin dans une caisse en bois, dans un caveau ensoleillé"
 ogImage: "/og/vendre-son-vin-en-direct.jpg"
 tags: ["Vendre son vin en direct", "Vignerons", "E-commerce", "SEO local"]
 ---

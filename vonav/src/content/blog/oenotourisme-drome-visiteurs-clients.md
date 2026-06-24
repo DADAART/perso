@@ -4,7 +4,7 @@ description: "Hermitage, Diois, ViaRhôna : comment capter les œnotouristes et 
 pubDate: 2026-06-24
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/oenotourisme-drome-visiteurs-clients.jpg
-heroImageAlt: "Œnotourisme en Drôme — VONAV"
+heroImageAlt: "Dégustation de vin conviviale à une table en bois dans les vignes, collines de la Drôme en arrière-plan"
 ogImage: "/og/oenotourisme-drome-visiteurs-clients.jpg"
 tags: ["Œnotourisme", "Vignerons", "Drôme"]
 ---

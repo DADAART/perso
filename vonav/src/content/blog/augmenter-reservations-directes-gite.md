@@ -4,7 +4,7 @@ description: "Site de réservation, photos, fiche Google, fidélisation : 7 levi
 pubDate: 2026-06-23
 author: "Charlélie Borel"
 heroImage: ../../assets/blog/augmenter-reservations-directes-gite.jpg
-heroImageAlt: "Augmenter ses réservations directes en Drôme — VONAV"
+heroImageAlt: "Terrasse ensoleillée d'un gîte provençal, table de petit-déjeuner et vélo contre un mur en pierre"
 ogImage: "/og/augmenter-reservations-directes-gite.jpg"
 tags: ["Réservation directe", "Hébergeurs", "Gîtes"]
 ---

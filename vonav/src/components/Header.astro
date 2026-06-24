@@ -4,13 +4,7 @@ import { NAV_LINKS, SITE } from "../data/site";
 <header class="site-header">
   <div class="wrap nav">
     <a href="/" class="brand" aria-label={`${SITE.name}, accueil`}>
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M24 9 A15 15 0 0 0 24 39 Z" fill="#D58A1E"></path>
-        <polygon points="19,39 41,39 31,11" fill="#9CC79A"></polygon>
-        <circle cx="24" cy="24" r="15" fill="none" stroke="#211E18" stroke-width="2"></circle>
-        <polygon points="19,39 41,39 31,11" fill="none" stroke="#211E18" stroke-width="2" stroke-linejoin="round"></polygon>
-      </svg>
-      <span class="brand__name">{SITE.name}</span>
+      <img src="/vonav-logo.png" alt={SITE.name} class="brand__logo" width="450" height="124" />
     </a>
     <nav aria-label="Principale">
       <ul class="nav__links">

@@ -372,3 +372,6 @@ form .btn{justify-content:center;margin-top:.3rem}
 .article__cta p{color:rgba(251,247,240,.8);margin-top:.6rem}
 .article__cta .btn{margin-top:1.2rem}
 .article__back{max-width:72ch;margin:2.4rem auto 0;font-weight:600;color:var(--vine-deep);display:inline-flex;align-items:center;gap:.4rem}
+
+.brand__logo{height:34px;width:auto;display:block}
+@media(max-width:520px){.brand__logo{height:30px}}

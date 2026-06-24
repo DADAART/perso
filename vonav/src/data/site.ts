@@ -10,9 +10,9 @@
  * ============================================================ */
 export const PLACEHOLDERS = {
   /** Conteneur Google Tag Manager, ex. "GTM-XXXXXXX" */
-  GTM_CONTAINER_ID: "GTM_CONTAINER_ID",
+  GTM_CONTAINER_ID: "GTM-K74FVZC9",
   /** Mesure GA4, ex. "G-XXXXXXXXXX" (branché DANS GTM, pas en dur ici) */
-  GA4_MEASUREMENT_ID: "GA4_MEASUREMENT_ID",
+  GA4_MEASUREMENT_ID: "G-G37STK6L99",
   /** Clé d'accès Web3Forms (backend du formulaire de contact) */
   FORM_BACKEND_ID: "FORM_BACKEND_ID",
   /** SIRET de la micro-entreprise (pas encore attribué) */

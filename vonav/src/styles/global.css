@@ -375,3 +375,6 @@ form .btn{justify-content:center;margin-top:.3rem}
 
 .brand__logo{height:34px;width:auto;display:block}
 @media(max-width:520px){.brand__logo{height:30px}}
+
+.about__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.about__photo::after{display:none}

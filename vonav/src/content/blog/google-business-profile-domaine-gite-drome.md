@@ -3,6 +3,9 @@ title: "Google Business Profile pour un domaine ou un gîte en Drôme : le guide
 description: "Votre fiche d'établissement Google est souvent le premier contact avec vos futurs clients. Voici comment la créer, la faire valider (vérification vidéo) et l'optimiser pour le SEO local en Drôme."
 pubDate: 2026-06-22
 author: "Charlélie Borel"
+heroImage: ../../assets/blog/google-business-profile-domaine-gite-drome.jpg
+heroImageAlt: "Google Business Profile pour un domaine ou un gîte en Drôme"
+ogImage: "/og/google-business-profile-domaine-gite-drome.jpg"
 tags: ["Google Business Profile", "SEO local", "Drôme"]
 ---
 

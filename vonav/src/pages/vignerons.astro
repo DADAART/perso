@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Method from "../components/Method.astro";
 import Zones from "../components/Zones.astro";
 import { serviceSchema, breadcrumbSchema } from "../lib/schema";
+import { Image } from "astro:assets";
+import banner from "../assets/landing/vignerons.jpg";
 
 const base = Astro.site!;
 const url = base.origin + "/vignerons/";
@@ -31,7 +33,7 @@ const schemas = [
   ]),
 ];
 ---
-<BaseLayout title={title} description={description} schemas={schemas}>
+<BaseLayout title={title} description={description} schemas={schemas} ogImage="/og/vignerons.jpg">
   <section class="page-hero">
     <div class="wrap page-hero__inner">
       <span class="eyebrow">Vignerons &amp; domaines · Drôme</span>
@@ -43,6 +45,10 @@ const schemas = [
       </div>
     </div>
   </section>
+
+  <div class="wrap" style="margin-top:1.4rem">
+    <Image src={banner} alt="Marketing digital pour vignerons en Drôme — VONAV" class="lp-banner" widths={[600, 1000, 1600]} sizes="100vw" loading="eager" />
+  </div>
 
   <section class="section" style="--accent:var(--vine)">
     <div class="wrap">

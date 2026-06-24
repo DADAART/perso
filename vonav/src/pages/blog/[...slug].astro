@@ -4,6 +4,7 @@ import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { NAP, SITE } from "../../data/site";
 import { articleSchema, breadcrumbSchema } from "../../lib/schema";
+import { Image } from "astro:assets";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -62,6 +63,10 @@ const schemas = [
         <a href="/blog">Blog</a> <span>/</span>
         <span aria-current="page">{post.data.title}</span>
       </nav>
+
+      {post.data.heroImage && (
+        <Image src={post.data.heroImage} alt={post.data.heroImageAlt ?? post.data.title} class="article__cover" widths={[480, 800, 1200]} sizes="(max-width: 760px) 92vw, 720px" loading="eager" />
+      )}
 
       <header class="article__head">
         <span class="eyebrow">Article</span>

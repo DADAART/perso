@@ -3,6 +3,9 @@ title: "Réduire les commissions Booking & Airbnb : le guide de la réservation 
 description: "Les plateformes prélèvent souvent 15 à 18 % de vos nuitées. Voici comment un gîte ou une chambre d'hôtes de la Drôme peut reprendre une part de réservations en direct, sans déserter Booking."
 pubDate: 2026-06-16
 author: "Charlélie Borel"
+heroImage: ../../assets/blog/reduire-commissions-booking-airbnb.jpg
+heroImageAlt: "Réservation directe pour gîtes et chambres d'hôtes — VONAV"
+ogImage: "/og/reduire-commissions-booking-airbnb.jpg"
 tags: ["Réservation directe", "Hébergeurs", "Gîtes", "Drôme"]
 ---
 

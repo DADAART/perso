@@ -3,6 +3,9 @@ title: "Créer une boutique en ligne pour vendre son vin : par où commencer"
 description: "Plateforme, expédition, fiches produits, paiement : le guide pour lancer une boutique en ligne qui vend vraiment vos bouteilles, quand on est vigneron."
 pubDate: 2026-06-20
 author: "Charlélie Borel"
+heroImage: ../../assets/blog/creer-boutique-en-ligne-vin.jpg
+heroImageAlt: "Créer une boutique en ligne pour vendre son vin — VONAV"
+ogImage: "/og/creer-boutique-en-ligne-vin.jpg"
 tags: ["Vendre son vin en direct", "Vignerons", "E-commerce"]
 ---
 

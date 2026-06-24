@@ -15,7 +15,8 @@
     "@astrojs/sitemap": "3.7.3",
     "@fontsource-variable/hanken-grotesk": "^5.2.8",
     "@fontsource-variable/jost": "^5.2.8",
-    "astro": "5.18.2"
+    "astro": "5.18.2",
+    "sharp": "^0.33.5"
   },
   "overrides": {
     "esbuild": "0.25.12"

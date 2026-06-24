@@ -3,6 +3,9 @@ title: "Augmenter ses réservations directes : 7 leviers pour un gîte en Drôme
 description: "Site de réservation, photos, fiche Google, fidélisation : 7 leviers concrets pour remplir votre gîte ou vos chambres d'hôtes en direct, sans les commissions."
 pubDate: 2026-06-23
 author: "Charlélie Borel"
+heroImage: ../../assets/blog/augmenter-reservations-directes-gite.jpg
+heroImageAlt: "Augmenter ses réservations directes en Drôme — VONAV"
+ogImage: "/og/augmenter-reservations-directes-gite.jpg"
 tags: ["Réservation directe", "Hébergeurs", "Gîtes"]
 ---
 

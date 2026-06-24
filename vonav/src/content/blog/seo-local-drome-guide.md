@@ -3,6 +3,9 @@ title: "SEO local en Drôme : le guide pour être trouvé sur Google"
 description: "Fiche Google, mots-clés locaux, pages géolocalisées, avis : comment un vigneron, un gîte ou une cave de la Drôme remonte dans les recherches locales."
 pubDate: 2026-06-18
 author: "Charlélie Borel"
+heroImage: ../../assets/blog/seo-local-drome-guide.jpg
+heroImageAlt: "SEO local en Drôme — guide VONAV"
+ogImage: "/og/seo-local-drome-guide.jpg"
 tags: ["SEO local", "Drôme", "Référencement"]
 ---
 

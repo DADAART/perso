@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Zones from "../components/Zones.astro";
 import { serviceSchema, breadcrumbSchema } from "../lib/schema";
+import { Image } from "astro:assets";
+import banner from "../assets/landing/caves-destinations.jpg";
 
 const base = Astro.site!;
 const url = base.origin + "/caves-destinations/";
@@ -28,7 +30,7 @@ const schemas = [
   ]),
 ];
 ---
-<BaseLayout title={title} description={description} schemas={schemas}>
+<BaseLayout title={title} description={description} schemas={schemas} ogImage="/og/caves-destinations.jpg">
   <section class="page-hero">
     <div class="wrap page-hero__inner">
       <span class="eyebrow">Caves, groupes &amp; destinations · Drôme</span>
@@ -39,6 +41,10 @@ const schemas = [
       </div>
     </div>
   </section>
+
+  <div class="wrap" style="margin-top:1.4rem">
+    <Image src={banner} alt="Directeur marketing externalisé en Drôme — VONAV" class="lp-banner" widths={[600, 1000, 1600]} sizes="100vw" loading="eager" />
+  </div>
 
   <section class="section" style="--accent:var(--gold)">
     <div class="wrap">

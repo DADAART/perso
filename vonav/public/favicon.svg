@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="VONAV">
-  <rect width="32" height="32" rx="7" fill="#16241D"/>
-  <path d="M16 28C16 21 9.5 18.2 6.8 12c6.3.9 9 4.5 9 4.5s0-6.3 4.5-10.8c1.8 7.2-.9 10.8-4.5 14.4" fill="none" stroke="#C28A33" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M16 28v-8.1" fill="none" stroke="#E8E6DC" stroke-width="1.7" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="VONAV">
+  <rect width="48" height="48" rx="10" fill="#FBF7F0"/>
+  <path d="M24 11 A14 14 0 0 0 24 39 Z" fill="#D58A1E"/>
+  <polygon points="19.5,39 40,39 30.5,13" fill="#9CC79A"/>
+  <circle cx="24" cy="25" r="14" fill="none" stroke="#211E18" stroke-width="2"/>
+  <polygon points="19.5,39 40,39 30.5,13" fill="none" stroke="#211E18" stroke-width="2" stroke-linejoin="round"/>
 </svg>

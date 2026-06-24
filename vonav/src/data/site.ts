@@ -67,7 +67,7 @@ export const SITE = {
   defaultDescription:
     "Studio de croissance digitale pour les vignerons, hébergeurs et acteurs du tourisme de la Drôme. Plus de ventes et de réservations en direct, moins d'intermédiaires.",
   /** Domaine de production (sans protocole) */
-  domain: "www.vonav.fr",
+  domain: "vonav.fr",
   /** Années d'expérience à afficher (harmonisé partout) */
   experienceYears: 7,
   locale: "fr_FR",

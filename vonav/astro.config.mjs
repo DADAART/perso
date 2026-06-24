@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 // URL de production du site (sert aux URL canoniques, sitemap, Open Graph).
 // ⚠️ À adapter si le domaine change.
-export const SITE_URL = "https://www.vonav.fr";
+export const SITE_URL = "https://vonav.fr";
 
 // https://astro.build/config
 export default defineConfig({

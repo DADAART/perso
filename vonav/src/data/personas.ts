@@ -17,7 +17,7 @@ export const PERSONAS: Persona[] = [
   {
     id: "vignerons",
     modifier: "persona--vigneron",
-    accentVar: "var(--vine)",
+    accentVar: "var(--vine-deep)",
     eyebrow: "Vignerons & domaines",
     title: "Reprenez votre marge.",
     lead: "Vous faites un vin dont vous êtes fier, mais en ligne, on ne vous trouve pas — et le négoce fixe vos prix. Je vous aide à vendre vos bouteilles en direct et à remplir votre caveau.",
@@ -37,7 +37,7 @@ export const PERSONAS: Persona[] = [
   {
     id: "hebergeurs",
     modifier: "persona--hebergeur",
-    accentVar: "var(--river)",
+    accentVar: "var(--river-deep)",
     eyebrow: "Gîtes & chambres d'hôtes",
     title: "Arrêtez de travailler pour Booking.",
     lead: "Vous avez créé un lieu qui a une âme. Mais entre les commissions des plateformes et les creux d'automne, vous ne soufflez jamais. Je remplis vos hébergements en direct — sans vous ajouter de travail.",
@@ -57,7 +57,7 @@ export const PERSONAS: Persona[] = [
   {
     id: "premium",
     modifier: "persona--premium",
-    accentVar: "var(--gold)",
+    accentVar: "var(--gold-deep)",
     eyebrow: "Caves, groupes & destinations",
     title: "Un pilote, pas dix prestataires.",
     lead: "Vous avez le volume, les équipes et les ambitions — mais pas de chef d'orchestre digital. J'interviens comme votre directeur marketing externalisé : une stratégie, un cap, des résultats mesurés.",

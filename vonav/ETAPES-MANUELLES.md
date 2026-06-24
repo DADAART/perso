@@ -34,7 +34,7 @@ chaque identifiant dans le code.
    ensuite). Vous pourrez activer le renouvellement automatique ou le faire à la main.
 
 ➡️ Rien à coller pour l'instant. Le domaine est déjà câblé dans le code
-(`astro.config.mjs` → `SITE_URL = "https://www.vonav.fr"`). Si vous choisissez une
+(`astro.config.mjs` → `SITE_URL = "https://vonav.fr"`). Si vous choisissez une
 autre extension, modifiez cette ligne **et** le `Sitemap:` dans `public/robots.txt`.
 
 ## 2. Créer un compte Cloudflare et déployer (Cloudflare Pages)
@@ -64,7 +64,7 @@ plus propre est de confier le DNS à Cloudflare :
    Change → I'll use my own nameservers* et collez les deux serveurs de Cloudflare.
    La propagation prend de quelques minutes à quelques heures.
 3. De retour dans Cloudflare, projet **Workers & Pages → votre projet → Custom
-   domains** : ajoutez `www.vonav.fr` (et `vonav.fr` redirigé vers `www`).
+   domains** : ajoutez `vonav.fr` (et `vonav.fr` redirigé vers `www`).
    Cloudflare crée les enregistrements et le **certificat HTTPS** automatiquement.
 
 > Alternative sans changer les nameservers : garder le DNS chez GoDaddy et y créer
@@ -72,7 +72,7 @@ plus propre est de confier le DNS à Cloudflare :
 > C'est possible, mais la bascule des nameservers vers Cloudflare reste plus simple
 > et débloque les réglages DNS pour Search Console (étape 7).
 
-> Le site utilise `https://www.vonav.fr` comme URL canonique. Si vous préférez la
+> Le site utilise `https://vonav.fr` comme URL canonique. Si vous préférez la
 > version **sans `www`**, modifiez `SITE_URL` dans `astro.config.mjs` et le
 > `Sitemap:` dans `public/robots.txt`, puis redéployez.
 
@@ -142,7 +142,7 @@ place. Vous pouvez aussi créer un compte Web3Forms pour activer l'auto-réponse
 3. Une fois vérifié, allez dans **Sitemaps** et soumettez :
 
    ```
-   https://www.vonav.fr/sitemap-index.xml
+   https://vonav.fr/sitemap-index.xml
    ```
 
 ## 8. Google Business Profile (fiche d'établissement)
@@ -155,7 +155,7 @@ place. Vous pouvez aussi créer un compte Web3Forms pour activer l'auto-réponse
      (pas d'adresse de rue affichée), zones : Drôme, vallée du Rhône,
      Crozes-Hermitage, Hermitage, vallée de la Drôme, Diois
    - Téléphone : **06 80 58 67 13**
-   - Site : **https://www.vonav.fr**
+   - Site : **https://vonav.fr**
 3. **Vérification vidéo** : Google demande une vidéo continue (≈ 30 s à quelques min)
    montrant le lieu, une preuve d'activité et que vous gérez l'établissement.
    Examen sous ~5 jours ouvrés. (Voir notre article de blog dédié.)
@@ -185,20 +185,4 @@ Tous dans **`src/data/site.ts`** (objet `PLACEHOLDERS`), sauf mention contraire.
 | `GA4_MEASUREMENT_ID` | GA4 (étape 5) | `G-XXXXXXXXXX` | `src/data/site.ts` |
 | `GTM_CONTAINER_ID` | GTM (étape 6) | `GTM-XXXXXXX` | `src/data/site.ts` |
 | `SIRET` | Immatriculation (étape 9) | `12345678900012` | `src/data/site.ts` |
-| URL du site | — (déjà réglée) | `https://www.vonav.fr` | `astro.config.mjs` + `public/robots.txt` |
-| LinkedIn | votre profil | `https://www.linkedin.com/...` | `src/data/site.ts` (`SITE.social.linkedin`) |
-| Image Open Graph | déjà fournie, remplaçable | `public/og/vonav-og.png` | `public/og/` |
-| Photo « À propos » | à ajouter | portrait | `src/components/About.astro` |
-
-## Checklist de mise en ligne
-
-- [ ] Domaine vonav.fr acheté et relié à Cloudflare
-- [ ] Site déployé sur Cloudflare Pages (HTTPS actif)
-- [ ] `FORM_BACKEND_ID` renseigné → **formulaire testé, e-mail reçu**
-- [ ] `GTM_CONTAINER_ID` renseigné, GA4 branché dans GTM, conteneur publié
-- [ ] Bandeau de consentement : refus = aucune requête Google ; acceptation = GA4 OK
-- [ ] Search Console vérifié + sitemap soumis
-- [ ] Fiche Google Business Profile créée et en cours de vérification vidéo
-- [ ] SIRET renseigné dès réception
-- [ ] Témoignages : remplacés par de vrais avis **ou** section masquée
-- [ ] Textes légaux relus
+| URL du site | — (déjà réglée) | `h

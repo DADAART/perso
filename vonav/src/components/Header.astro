@@ -4,9 +4,11 @@ import { NAV_LINKS, SITE } from "../data/site";
 <header class="site-header">
   <div class="wrap nav">
     <a href="/" class="brand" aria-label={`${SITE.name}, accueil`}>
-      <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M16 30C16 22 9 19 6 12c7 1 10 5 10 5s0-7 5-12c2 8-1 12-5 16" stroke="#C28A33" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"></path>
-        <path d="M16 30v-9" stroke="#E8E6DC" stroke-width="1.7" stroke-linecap="round"></path>
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 9 A15 15 0 0 0 24 39 Z" fill="#D58A1E"></path>
+        <polygon points="19,39 41,39 31,11" fill="#9CC79A"></polygon>
+        <circle cx="24" cy="24" r="15" fill="none" stroke="#211E18" stroke-width="2"></circle>
+        <polygon points="19,39 41,39 31,11" fill="none" stroke="#211E18" stroke-width="2" stroke-linejoin="round"></polygon>
       </svg>
       <span class="brand__name">{SITE.name}</span>
     </a>
@@ -29,7 +31,6 @@ import { NAV_LINKS, SITE } from "../data/site";
 </header>
 
 <script>
-  // Menu mobile
   const t = document.querySelector(".nav__toggle");
   const m = document.getElementById("mobile-menu");
   if (t && m) {

@@ -80,7 +80,7 @@ vonav/
 │       ├── mentions-legales.astro
 │       ├── politique-confidentialite.astro
 │       └── 404.astro
-├── astro.config.mjs            # site = https://www.vonav.fr, sitemap
+├── astro.config.mjs            # site = https://vonav.fr, sitemap
 └── package.json
 ```
 

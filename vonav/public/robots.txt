@@ -1,0 +1,7 @@
+# robots.txt — VONAV
+User-agent: *
+Allow: /
+
+# Pas de zone d'administration à exclure (site statique).
+
+Sitemap: https://www.vonav.fr/sitemap-index.xml

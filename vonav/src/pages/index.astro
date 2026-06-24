@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Segments from "../components/Segments.astro";
+import Persona from "../components/Persona.astro";
+import Why from "../components/Why.astro";
+import Method from "../components/Method.astro";
+import Offers from "../components/Offers.astro";
+import About from "../components/About.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Faq from "../components/Faq.astro";
+import Contact from "../components/Contact.astro";
+
+import { PERSONAS } from "../data/personas";
+import { FAQ } from "../data/faq";
+import { SITE } from "../data/site";
+import {
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+  faqPageSchema,
+} from "../lib/schema";
+
+const base = Astro.site!;
+const schemas = [
+  localBusinessSchema(base),
+  organizationSchema(base),
+  websiteSchema(base),
+  faqPageSchema(FAQ),
+];
+
+const title = `${SITE.name} — Croissance digitale pour le tourisme & le terroir en Drôme`;
+---
+<BaseLayout title={title} description={SITE.defaultDescription} schemas={schemas}>
+  <Hero />
+  <Segments />
+  {PERSONAS.map((p) => <Persona persona={p} />)}
+  <Why />
+  <Method />
+  <Offers />
+  <About />
+  <Testimonials />
+  <Faq />
+  <Contact />
+</BaseLayout>

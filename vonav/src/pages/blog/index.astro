@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/site";
+import { breadcrumbSchema } from "../../lib/schema";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+const fmt = (d: Date) =>
+  new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" }).format(d);
+
+const base = Astro.site!;
+const title = `Blog — Conseils SEO & marketing pour le tourisme en Drôme | ${SITE.name}`;
+const description =
+  "Guides concrets pour vendre en direct et gagner en visibilité : référencement local, réservation directe, Google Business Profile, e-commerce du vin. Sans jargon.";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Blog", url: base.origin + "/blog/" },
+  ]),
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="page-hero">
+    <div class="wrap page-hero__inner">
+      <span class="eyebrow">Le blog</span>
+      <h1>Vendre en direct, sans jargon.</h1>
+      <p>Des guides concrets pour les vignerons, hébergeurs et acteurs du tourisme de la Drôme : référencement local, réservation directe, e-commerce et présence Google. À appliquer, pas à théoriser.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {posts.length === 0 ? (
+        <p class="lead">Les premiers articles arrivent très bientôt.</p>
+      ) : (
+        <div class="bloglist">
+          {posts.map((post) => (
+            <article class="postcard">
+              <span class="postcard__meta">{fmt(post.data.pubDate)}</span>
+              <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+              <p>{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <div class="tags">{post.data.tags.slice(0, 3).map((t) => <span class="tag">{t}</span>)}</div>
+              )}
+              <a class="postcard__link" href={`/blog/${post.id}/`}>Lire l'article <span class="arr">→</span></a>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

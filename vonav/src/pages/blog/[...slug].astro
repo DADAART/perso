@@ -1,0 +1,89 @@
+---
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { NAP, SITE } from "../../data/site";
+import { articleSchema, breadcrumbSchema } from "../../lib/schema";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const base = Astro.site!;
+const url = new URL(`/blog/${post.id}/`, base).href;
+
+const fmt = (d: Date) =>
+  new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" }).format(d);
+const words = post.body ? post.body.trim().split(/\s+/).length : 0;
+const readMin = Math.max(1, Math.round(words / 200));
+
+const title = `${post.data.title} | ${SITE.name}`;
+
+const schemas = [
+  articleSchema(base, {
+    url,
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.pubDate.toISOString(),
+    dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+    image: post.data.ogImage,
+    keywords: post.data.tags,
+  }),
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Blog", url: base.origin + "/blog/" },
+    { name: post.data.title, url },
+  ]),
+];
+---
+<BaseLayout
+  title={title}
+  description={post.data.description}
+  ogType="article"
+  ogImage={post.data.ogImage}
+  schemas={schemas}
+  articleMeta={{
+    publishedTime: post.data.pubDate.toISOString(),
+    modifiedTime: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+    tags: post.data.tags,
+  }}
+>
+  <article class="article">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="/">Accueil</a> <span>/</span>
+        <a href="/blog">Blog</a> <span>/</span>
+        <span aria-current="page">{post.data.title}</span>
+      </nav>
+
+      <header class="article__head">
+        <span class="eyebrow">Article</span>
+        <h1>{post.data.title}</h1>
+        <div class="article__meta">
+          <span>{fmt(post.data.pubDate)}</span>
+          <span>{post.data.author}</span>
+          <span>{readMin} min de lecture</span>
+        </div>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <aside class="article__cta">
+        <h3>Envie d'appliquer ça chez vous ?</h3>
+        <p>Je regarde votre présence en ligne et je vous dis, concrètement, par où commencer — c'est gratuit et sans engagement.</p>
+        <a href="/#contact" class="btn btn--primary">Recevoir mon diagnostic gratuit <span class="arr">→</span></a>
+      </aside>
+
+      <a class="article__back" href="/blog">← Tous les articles</a>
+    </div>
+  </article>
+</BaseLayout>

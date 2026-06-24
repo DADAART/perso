@@ -1,0 +1,48 @@
+---
+import { NAV_LINKS, SITE } from "../data/site";
+---
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="/" class="brand" aria-label={`${SITE.name}, accueil`}>
+      <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 30C16 22 9 19 6 12c7 1 10 5 10 5s0-7 5-12c2 8-1 12-5 16" stroke="#C28A33" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"></path>
+        <path d="M16 30v-9" stroke="#E8E6DC" stroke-width="1.7" stroke-linecap="round"></path>
+      </svg>
+      <span class="brand__name">{SITE.name}</span>
+    </a>
+    <nav aria-label="Principale">
+      <ul class="nav__links">
+        {NAV_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <a href="/#contact" class="btn btn--primary nav__cta">Diagnostic gratuit</a>
+    <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="wrap">
+    <div class="mobile-menu" id="mobile-menu">
+      {NAV_LINKS.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href="/#contact" class="btn btn--primary">Diagnostic gratuit</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Menu mobile
+  const t = document.querySelector(".nav__toggle");
+  const m = document.getElementById("mobile-menu");
+  if (t && m) {
+    t.addEventListener("click", () => {
+      const open = m.classList.toggle("open");
+      t.setAttribute("aria-expanded", open ? "true" : "false");
+      t.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    });
+    m.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        m.classList.remove("open");
+        t.setAttribute("aria-expanded", "false");
+      }),
+    );
+  }
+</script>

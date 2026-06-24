@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE, NAP } from "../data/site";
+
+const title = `Politique de confidentialité | ${SITE.name}`;
+const description = `Comment ${SITE.name} collecte, utilise et protège vos données personnelles, et comment exercer vos droits (RGPD).`;
+const updated = "23 juin 2026";
+---
+<BaseLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="wrap page-hero__inner">
+      <span class="eyebrow">Vos données</span>
+      <h1>Politique de confidentialité</h1>
+      <p>Dernière mise à jour : {updated}</p>
+    </div>
+  </section>
+
+  <section class="article">
+    <div class="prose">
+      <p>
+        {NAP.legalName} accorde une grande importance à la protection de votre vie privée. Cette
+        politique explique quelles données sont collectées sur <strong>{SITE.domain}</strong>,
+        pourquoi, et quels sont vos droits, conformément au Règlement général sur la protection des
+        données (RGPD) et à la loi « Informatique et Libertés ».
+      </p>
+
+      <h2>Responsable du traitement</h2>
+      <p>
+        Le responsable du traitement est {NAP.legalName}, {NAP.address.locality} ({NAP.address.regionCode}).
+        Pour toute question relative à vos données : <a href={`mailto:${NAP.email}`}>{NAP.email}</a>.
+      </p>
+
+      <h2>Quelles données sont collectées</h2>
+      <p>Deux situations principales :</p>
+      <ul>
+        <li>
+          <strong>Formulaire de contact :</strong> lorsque vous demandez un diagnostic, nous
+          collectons les informations que vous saisissez — prénom et nom, adresse e-mail,
+          téléphone (facultatif), type d'activité, adresse de votre site (facultatif) et le contenu
+          de votre message.
+        </li>
+        <li>
+          <strong>Mesure d'audience (avec votre consentement) :</strong> si vous l'acceptez via le
+          bandeau de cookies, des données de navigation anonymisées sont collectées pour comprendre
+          l'usage du site.
+        </li>
+      </ul>
+
+      <h2>Finalités &amp; bases légales</h2>
+      <ul>
+        <li>
+          <strong>Répondre à votre demande</strong> et établir un éventuel devis : base légale =
+          votre consentement et l'exécution de mesures précontractuelles prises à votre demande.
+        </li>
+        <li>
+          <strong>Améliorer le site</strong> via la mesure d'audience : base légale = votre
+          consentement (révocable à tout moment).
+        </li>
+      </ul>
+
+      <h2>Destinataires &amp; sous-traitants</h2>
+      <p>
+        Vos données ne sont ni vendues, ni louées. Elles peuvent être traitées par des prestataires
+        techniques agissant pour notre compte :
+      </p>
+      <ul>
+        <li><strong>Web3Forms</strong> — acheminement des messages du formulaire de contact vers notre e-mail.</li>
+        <li><strong>Cloudflare</strong> — hébergement du site (Cloudflare Pages).</li>
+        <li><strong>Google (Analytics / Tag Manager)</strong> — mesure d'audience, uniquement si vous y consentez.</li>
+      </ul>
+      <p>
+        Certains de ces prestataires peuvent traiter des données en dehors de l'Union européenne ;
+        ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types de
+        la Commission européenne).
+      </p>
+
+      <h2>Durée de conservation</h2>
+      <ul>
+        <li>Données issues du formulaire : conservées le temps nécessaire au traitement de votre demande, puis archivées ou supprimées au maximum sous 3 ans après le dernier contact.</li>
+        <li>Données de mesure d'audience : conservées conformément aux réglages de l'outil, dans la limite de 14 mois.</li>
+      </ul>
+
+      <h2>Cookies &amp; traceurs</h2>
+      <p>
+        À votre arrivée, <strong>aucun cookie de mesure ou de publicité n'est déposé</strong> tant
+        que vous n'avez pas donné votre accord. Un bandeau de consentement (Tarteaucitron) vous
+        permet d'accepter ou de refuser, le refus étant aussi simple que l'acceptation. Vous pouvez
+        modifier votre choix à tout moment via le lien « Gérer les cookies » en bas de page.
+      </p>
+      <p>
+        Seuls des cookies strictement nécessaires au fonctionnement du site (dont la mémorisation de
+        votre choix de consentement) sont utilisés sans consentement préalable. La mesure d'audience
+        (Google Analytics, via Google Tag Manager) n'est activée qu'après acceptation, et le mode
+        consentement de Google (Consent Mode v2) bloque les tags par défaut.
+      </p>
+
+      <h2>Vos droits</h2>
+      <p>Vous disposez des droits suivants sur vos données :</p>
+      <ul>
+        <li>droit d'accès, de rectification et d'effacement ;</li>
+        <li>droit à la limitation et à l'opposition au traitement ;</li>
+        <li>droit à la portabilité ;</li>
+        <li>droit de retirer votre consentement à tout moment ;</li>
+        <li>droit de définir des directives sur le sort de vos données après votre décès.</li>
+      </ul>
+      <p>
+        Pour exercer ces droits, écrivez-nous à <a href={`mailto:${NAP.email}`}>{NAP.email}</a>.
+        Vous pouvez également introduire une réclamation auprès de la CNIL
+        (<a href="https://www.cnil.fr" rel="noopener" target="_blank">cnil.fr</a>).
+      </p>
+
+      <h2>Sécurité</h2>
+      <p>
+        Nous mettons en œuvre des mesures techniques et organisationnelles raisonnables pour
+        protéger vos données contre tout accès, altération ou divulgation non autorisés.
+      </p>
+
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import type { Persona } from "../data/personas";
+interface Props { persona: Persona }
+const { persona } = Astro.props;
+---
+<section class={`section persona ${persona.modifier}`} id={persona.id}>
+  <div class="wrap persona__grid">
+    <div class="persona__head reveal">
+      <span class="eyebrow" style={`color:${persona.accentVar}`}>{persona.eyebrow}</span>
+      <h2>{persona.title}</h2>
+      <p class="lead">{persona.lead}</p>
+      <div class="persona__roi" set:html={persona.roiHtml}></div>
+      <div class="persona__cta"><a href="/#contact" class="btn btn--ghost">{persona.ctaLabel} <span class="arr">→</span></a></div>
+    </div>
+    <div class="reveal">
+      <ul class="persona__list">
+        {persona.items.map((item) => <li set:html={item}></li>)}
+      </ul>
+      <blockquote class="persona__quote">
+        {persona.quote}
+        <cite>{persona.quoteCite}</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>

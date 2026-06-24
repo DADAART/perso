@@ -1,0 +1,97 @@
+---
+/**
+ * Gestion du consentement (RGPD / CNIL) — Tarteaucitron.js auto-hébergé.
+ * - Aucun tag ne se déclenche avant consentement (highPrivacy + serviceDefaultState "wait").
+ * - Refus aussi simple que l'acceptation (DenyAllCta).
+ * - Consent Mode v2 : valeurs "denied" par défaut posées dans BaseLayout (<head>),
+ *   mises à jour ici à l'acceptation/refus.
+ * - GTM est chargé UNE SEULE FOIS par Tarteaucitron, après consentement.
+ *   GA4 se branche DANS GTM (voir ETAPES-MANUELLES.md).
+ */
+import { PLACEHOLDERS } from "../data/site";
+---
+<script is:inline>
+  // Force la langue française du bandeau, avant chargement de la lib.
+  window.tarteaucitronForceLanguage = "fr";
+</script>
+<script is:inline src="/tarteaucitron/tarteaucitron.js"></script>
+<script define:vars={{ gtmId: PLACEHOLDERS.GTM_CONTAINER_ID, privacyUrl: "/politique-confidentialite" }}>
+  (function () {
+    if (!window.tarteaucitron) return;
+
+    tarteaucitron.init({
+      privacyUrl: privacyUrl,
+      bodyPosition: "bottom",
+      hashtag: "#tarteaucitron",
+      cookieName: "tarteaucitron",
+      orientation: "bottom",
+      groupServices: false,
+      showDetailsOnClick: true,
+      serviceDefaultState: "wait", // rien n'est activé tant que l'utilisateur n'a pas choisi
+      showAlertSmall: false,
+      cookieslist: true,
+      closePopup: false,
+      showIcon: true, // petit cookie persistant pour rouvrir le panneau
+      iconPosition: "BottomRight",
+      adblocker: false,
+      DenyAllCta: true, // refus aussi simple que l'acceptation (CNIL)
+      AcceptAllCta: true,
+      highPrivacy: true, // pas de dépôt avant action explicite
+      handleBrowserDNTRequest: false,
+      removeCredit: false,
+      moreInfoLink: true,
+      useExternalCss: false,
+      useExternalJs: false,
+      readmoreLink: privacyUrl,
+      mandatory: true,
+      mandatoryCta: true,
+      googleConsentMode: true,
+      softbar: false,
+    });
+
+    // Service Google Tag Manager (chargé après consentement uniquement).
+    // Tant que l'ID reste le placeholder, le bandeau fonctionne mais aucun
+    // conteneur réel n'est chargé. Remplacez GTM_CONTAINER_ID par "GTM-XXXXXXX".
+    tarteaucitron.user.googletagmanagerId = gtmId;
+    (tarteaucitron.job = tarteaucitron.job || []).push("googletagmanager");
+    if (gtmId.indexOf("GTM-") !== 0) {
+      console.info(
+        "[VONAV] GTM non configuré : remplacez GTM_CONTAINER_ID dans src/data/site.ts (voir ETAPES-MANUELLES.md)."
+      );
+    }
+
+    // Pont Consent Mode v2 : synchronise gtag() avec le choix utilisateur.
+    function vonavSyncConsent() {
+      var cookies = "";
+      try {
+        cookies = decodeURIComponent(document.cookie || "");
+      } catch (e) {
+        cookies = document.cookie || "";
+      }
+      var granted = /googletagmanager=true/.test(cookies);
+      var v = granted ? "granted" : "denied";
+      if (typeof window.gtag === "function") {
+        window.gtag("consent", "update", {
+          ad_storage: v,
+          ad_user_data: v,
+          ad_personalization: v,
+          analytics_storage: v,
+          functionality_storage: v,
+          personalization_storage: v,
+        });
+      }
+    }
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!t) return;
+      var id = (t.id || "") + "";
+      var inRoot = t.closest && t.closest("#tarteaucitronRoot");
+      if (id.indexOf("tarteaucitron") === 0 || inRoot) {
+        setTimeout(vonavSyncConsent, 350);
+      }
+    });
+    window.addEventListener("load", function () {
+      setTimeout(vonavSyncConsent, 700);
+    });
+  })();
+</script>

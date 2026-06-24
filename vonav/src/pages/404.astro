@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+
+const title = `Page introuvable (404) | ${SITE.name}`;
+const description = "Cette page n'existe pas ou a été déplacée.";
+---
+<BaseLayout title={title} description={description} noindex={true}>
+  <section class="hero" style="min-height:70vh;display:flex;align-items:center">
+    <svg class="hero__terraces" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,400 C300,360 560,320 760,250 C980,175 1180,150 1440,90" fill="none" stroke="rgba(194,138,51,.55)" stroke-width="1.5"></path>
+      <path d="M0,420 C320,392 580,360 800,300 C1010,243 1230,215 1440,160" fill="none" stroke="rgba(78,111,60,.55)" stroke-width="1.5"></path>
+    </svg>
+    <div class="wrap hero__inner" style="width:100%">
+      <span class="eyebrow">Erreur 404</span>
+      <h1 style="max-width:18ch">Cette page a filé comme un millésime épuisé.</h1>
+      <p class="hero__sub">La page que vous cherchez n'existe pas, ou a changé d'adresse. Pas de panique — tout le reste est toujours là.</p>
+      <div class="hero__cta">
+        <a href="/" class="btn btn--primary">Retour à l'accueil <span class="arr">→</span></a>
+        <a href="/blog" class="btn btn--onink">Voir le blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+/**
+ * Témoignages — EXEMPLES explicitement étiquetés (aucun faux avis).
+ * À remplacer par de vrais témoignages clients dès qu'ils existent,
+ * ou masquer la section (commenter <Testimonials /> dans index.astro).
+ */
+import { SITE } from "../data/site";
+
+const examples = [
+  {
+    quote:
+      "On a enfin un site qui réserve tout seul. Les commissions de Booking ont fondu, et l'automne ne fait plus peur.",
+    who: "Gîte · vallée de la Drôme",
+  },
+  {
+    quote:
+      "La boutique tourne, je vends mes bouteilles au prix juste. Plus seulement dépendant du négoce.",
+    who: "Domaine · Crozes-Hermitage",
+  },
+  {
+    quote:
+      "Un seul interlocuteur qui comprend notre métier et parle résultats. Ça change tout en réunion.",
+    who: "Cave · Diois",
+  },
+];
+---
+<section class="section testi">
+  <div class="wrap">
+    <span class="eyebrow reveal">Ils en parlent</span>
+    <h2 class="reveal">Bientôt, leurs résultats — peut-être les vôtres.</h2>
+    <p class="testi__intro reveal">{SITE.name} démarre : ces retours sont des exemples du type de résultats visés. Ils seront remplacés par les avis de vos premiers clients.</p>
+    <div class="testi__grid">
+      {/* TODO : remplacer par de vrais témoignages clients. Ne pas publier de faux avis. */}
+      {examples.map((t) => (
+        <figure class="testi__card reveal">
+          <span class="testi__ex">Exemple</span>
+          <p>« {t.quote} »</p>
+          <figcaption class="testi__who">{t.who}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

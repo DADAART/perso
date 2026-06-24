@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE, NAP, PLACEHOLDERS } from "../data/site";
+
+const title = `Mentions légales | ${SITE.name}`;
+const description = `Mentions légales du site ${SITE.name} — éditeur, hébergeur, propriété intellectuelle et conditions d'utilisation.`;
+const updated = "23 juin 2026";
+---
+<BaseLayout title={title} description={description} noindex={false}>
+  <section class="page-hero">
+    <div class="wrap page-hero__inner">
+      <span class="eyebrow">Informations légales</span>
+      <h1>Mentions légales</h1>
+      <p>Dernière mise à jour : {updated}</p>
+    </div>
+  </section>
+
+  <section class="article">
+    <div class="prose">
+      <h2>Éditeur du site</h2>
+      <p>
+        Le site <strong>{SITE.domain}</strong> est édité par <strong>{NAP.legalName}</strong>,
+        entrepreneur individuel exerçant sous le statut de la micro-entreprise.
+      </p>
+      <ul>
+        <li>Responsable de la publication : {NAP.founder}</li>
+        <li>Siège / lieu d'exercice : {NAP.address.locality} ({NAP.address.regionCode}), {NAP.address.region}, France</li>
+        <li>Adresse e-mail : <a href={`mailto:${NAP.email}`}>{NAP.email}</a></li>
+        <li>Téléphone : <a href={`tel:${NAP.phoneE164}`}>{NAP.phoneDisplay}</a></li>
+        <li>SIRET : {PLACEHOLDERS.SIRET}</li>
+        <li>TVA : non applicable, article 293 B du Code général des impôts (franchise en base).</li>
+      </ul>
+
+      <h2>Hébergement</h2>
+      <p>
+        Le site est hébergé par <strong>Cloudflare, Inc.</strong>, 101 Townsend Street,
+        San Francisco, CA 94107, États-Unis — <a href="https://www.cloudflare.com" rel="noopener" target="_blank">cloudflare.com</a>.
+        Le service utilisé est Cloudflare Pages.
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus présents sur ce site (textes, visuels, logo, identité graphique,
+        structure) est, sauf mention contraire, la propriété de {NAP.legalName} ou utilisé avec
+        autorisation. Toute reproduction, représentation ou diffusion, totale ou partielle, sans
+        autorisation écrite préalable est interdite et constituerait une contrefaçon au sens du
+        Code de la propriété intellectuelle.
+      </p>
+
+      <h2>Responsabilité</h2>
+      <p>
+        Les informations diffusées sur ce site le sont à titre indicatif et sont susceptibles
+        d'évoluer. {NAP.legalName} s'efforce d'en assurer l'exactitude mais ne saurait être tenu
+        responsable des erreurs, omissions, ou des conséquences de leur utilisation. Les liens vers
+        des sites tiers sont fournis pour votre commodité ; leur contenu n'engage que leurs éditeurs
+        respectifs.
+      </p>
+
+      <h2>Données personnelles &amp; cookies</h2>
+      <p>
+        Le traitement de vos données personnelles et l'usage des cookies sont détaillés dans notre
+        <a href="/politique-confidentialite">politique de confidentialité</a>.
+      </p>
+
+      <h2>Médiation de la consommation</h2>
+      <p>
+        Conformément aux articles L.611-1 et suivants du Code de la consommation, le client
+        consommateur a le droit de recourir gratuitement à un médiateur de la consommation en vue
+        de la résolution amiable d'un litige. Les coordonnées du médiateur compétent seront
+        communiquées sur demande et précisées dans les conditions contractuelles.
+      </p>
+
+      <h2>Droit applicable</h2>
+      <p>
+        Le présent site et ses mentions légales sont soumis au droit français. En cas de litige,
+        et à défaut de résolution amiable, les tribunaux français seront seuls compétents.
+      </p>
+
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </div>
+  </section>
+</BaseLayout>

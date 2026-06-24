@@ -1,6 +1,6 @@
 ---
 title: "Vendre son vin en direct : sortir de la dépendance au négoce"
-description: "Le négoce sécurise vos volumes mais fixe vos prix. Voici comment un domaine de la Drôme peut reprendre de la marge en vendant ses bouteilles en direct, sans tout révolutionner."
+description: "Le négoce fixe vos prix. Voici comment un domaine de la Drôme peut reprendre de la marge en vendant ses bouteilles en direct, étape par étape."
 pubDate: 2026-06-10
 author: "Charlélie Borel"
 tags: ["Vendre son vin en direct", "Vignerons", "E-commerce", "SEO local"]

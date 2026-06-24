@@ -93,6 +93,8 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
           form.style.display = "none";
           success.classList.add("show");
           if (success.focus) success.focus();
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "generate_lead", form: "contact" });
         } else {
           throw new Error(json.message || "Échec de l'envoi");
         }

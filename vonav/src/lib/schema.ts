@@ -156,3 +156,28 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+/** Service (pages cibles) */
+export function serviceSchema(
+  base: URL,
+  opts: { name: string; serviceType: string; description: string; url: string; areaServed?: string[] },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    serviceType: opts.serviceType,
+    description: opts.description,
+    url: opts.url,
+    inLanguage: "fr-FR",
+    provider: {
+      "@type": "Organization",
+      name: NAP.brand,
+      url: base.origin + "/",
+    },
+    areaServed: (opts.areaServed ?? NAP.areaServed).map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
+  };
+}

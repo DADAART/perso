@@ -65,7 +65,7 @@ export const SITE = {
   tagline: "Croissance digitale pour le tourisme & le terroir en Drôme.",
   /** Description par défaut (fallback meta) */
   defaultDescription:
-    "Studio de croissance digitale pour les vignerons, hébergeurs et acteurs du tourisme de la Drôme. Plus de ventes et de réservations en direct, moins d'intermédiaires.",
+    "Studio de croissance digitale pour les vignerons, hébergeurs et acteurs du tourisme de la Drôme : plus de ventes et de réservations en direct.",
   /** Domaine de production (sans protocole) */
   domain: "vonav.fr",
   /** Années d'expérience à afficher (harmonisé partout) */

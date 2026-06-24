@@ -1,0 +1,17 @@
+---
+const towns = [
+  "Valence", "Tain-l'Hermitage", "Tournon-sur-Rhône", "Crozes-Hermitage",
+  "Romans-sur-Isère", "Die & le Diois", "Crest", "Montélimar",
+  "Nyons", "Grignan", "Vallée de la Drôme", "Vallée du Rhône",
+];
+---
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow reveal">Zone d'intervention</span>
+    <h2 class="reveal">Un accompagnement ancré en Drôme.</h2>
+    <p class="lead reveal">Basé à Valence, j'accompagne les vignerons, hébergeurs et acteurs du tourisme dans toute la Drôme et la vallée du Rhône — à distance, et sur le terrain quand c'est utile.</p>
+    <div class="zones reveal">
+      {towns.map((t) => <span class="zone">{t}</span>)}
+    </div>
+  </div>
+</section>

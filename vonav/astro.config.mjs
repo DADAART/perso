@@ -15,9 +15,12 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // Pages exclues du sitemap (légales : indexables mais on les sort des priorités hautes)
+      // Exclut la 404 et les anciennes pages (devenues des redirections vers l'accueil)
       filter: (page) =>
-        !page.includes("/404") ,
+        !page.includes("/404") &&
+        !page.includes("/vignerons") &&
+        !page.includes("/hebergeurs") &&
+        !page.includes("/caves-destinations"),
       changefreq: "weekly",
       lastmod: new Date(),
     }),

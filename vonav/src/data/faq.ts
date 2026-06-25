@@ -1,23 +1,27 @@
 /** Questions fréquentes — réutilisées par la section FAQ et le JSON-LD FAQPage. */
 export const FAQ: { q: string; a: string }[] = [
   {
-    q: "Je n'ai pas le temps de m'en occuper.",
-    a: "C'est justement le but. Je gère l'exécution ; vous validez l'essentiel en quelques minutes par mois. Le digital, c'est ma charge, pas la vôtre.",
+    q: "Concrètement, un « directeur e-commerce externalisé », c'est quoi ?",
+    a: "La séniorité d'un responsable e-commerce, quelques jours par mois, branché sur vos résultats. Je définis la stratégie, je pilote l'exécution et vos prestataires, et je vous rends des comptes — sans le coût ni l'engagement d'un recrutement.",
+  },
+  {
+    q: "En quoi est-ce différent d'une agence ?",
+    a: "Une agence exécute un canal (publicité, SEO, développement). Moi, je suis embarqué dans votre équipe, responsable du résultat global, et je pilote justement les agences. Souvent, le meilleur montage c'est : moi à la direction, des agences à l'exécution.",
   },
   {
     q: "Combien ça coûte, et est-ce rentable ?",
-    a: "Le diagnostic est gratuit et chiffre le potentiel. Ensuite, l'objectif est simple : que ce que je vous rapporte dépasse ce que je vous coûte. Pour un hébergeur, les commissions évitées suffisent souvent ; pour un domaine, quelques ventes directes de plus.",
+    a: "L'audit est gratuit et chiffre le potentiel. L'accompagnement démarre autour de 3 000 € / mois selon le nombre de jours. L'objectif est simple : que ce que je vous rapporte dépasse ce que je vous coûte — c'est mesuré chaque mois.",
   },
   {
-    q: "Les plateformes me remplissent déjà.",
-    a: "Oui — en prélevant 15 à 17 %. L'idée n'est pas de les quitter, mais de reprendre une part de réservations en direct, là où la marge vous revient entièrement.",
+    q: "Je débute, je n'ai pas encore de boutique. C'est pour moi ?",
+    a: "Oui. Je peux créer ou refondre votre boutique Shopify, puis la piloter dans la durée. On commence par l'audit gratuit pour cadrer le besoin et le bon niveau d'accompagnement.",
   },
   {
-    q: "Le digital, ce n'est pas mon métier.",
-    a: "C'est le mien. Vous restez vigneron, hôte ou restaurateur ; je traduis votre savoir-faire en visibilité et en ventes. Sans jargon, et toujours en vous expliquant ce qui se passe.",
+    q: "Vous travaillez à distance ?",
+    a: "Oui, j'interviens à distance partout en France. Tout se pilote en visio et avec des outils partagés ; je me déplace quand c'est vraiment utile.",
   },
   {
-    q: "Vous travaillez avec mon secteur géographique ?",
-    a: "Je suis basé à Valence et j'accompagne en priorité la Drôme et ses environs. Le suivi se fait à distance, et sur le terrain quand c'est utile.",
+    q: "Sur quelles plateformes travaillez-vous ?",
+    a: "Shopify en priorité — c'est mon terrain au quotidien. Mais l'approche (acquisition, conversion, rétention) vaut quel que soit votre outil.",
   },
 ];

@@ -1,95 +1,18 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Zones from "../components/Zones.astro";
-import { serviceSchema, breadcrumbSchema } from "../lib/schema";
-import { Image } from "astro:assets";
-import banner from "../assets/landing/caves-destinations.jpg";
-
-const base = Astro.site!;
-const url = base.origin + "/caves-destinations/";
-const title = "Directeur marketing externalisé pour caves & destinations en Drôme | VONAV";
-const description =
-  "Un pilote unique pour votre marketing : stratégie, SEO, publicité et reporting orientés chiffre d'affaires, pour les caves et destinations de la Drôme.";
-
-const features = [
-  { t: "Une feuille de route claire", d: "Acquisition, conversion, fidélisation : une stratégie priorisée et chiffrée, pas une liste d'actions décousues." },
-  { t: "Le pilotage de tous vos leviers", d: "SEO, publicité, CRM, e-commerce, contenu : un seul chef d'orchestre, au lieu de dix prestataires qui ne se parlent pas." },
-  { t: "Des décisions guidées par la marge", d: "On arbitre au chiffre d'affaires et au retour sur investissement, pas aux impressions ni aux « likes »." },
-  { t: "Un reporting lisible", d: "Des tableaux de bord clairs, présentables en comité, qui montrent ce qui rapporte et ce qu'on ajuste." },
-];
-const schemas = [
-  serviceSchema(base, {
-    name: "Directeur marketing externalisé",
-    serviceType: "Direction marketing externalisée pour caves, groupes et destinations touristiques",
-    description,
-    url,
-  }),
-  breadcrumbSchema([
-    { name: "Accueil", url: base.origin + "/" },
-    { name: "Caves & destinations", url },
-  ]),
-];
+// Ancienne page (repositionnement) — redirige vers l'accueil. Noindex.
+const dest = "/";
 ---
-<BaseLayout title={title} description={description} schemas={schemas} ogImage="/og/caves-destinations.jpg">
-  <section class="page-hero">
-    <div class="wrap page-hero__inner">
-      <span class="eyebrow">Caves, groupes &amp; destinations · Drôme</span>
-      <h1>Un pilote, pas dix prestataires.</h1>
-      <p>Vous avez le volume, les équipes et les ambitions — mais pas de chef d'orchestre digital. J'interviens comme votre directeur marketing externalisé : une stratégie, un cap, des résultats mesurés, sur le terrain en Drôme.</p>
-      <div class="hero__cta" style="margin-top:2rem">
-        <a href="/#contact" class="btn btn--primary">Cadrer votre stratégie <span class="arr">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap" style="margin-top:1.4rem">
-    <Image src={banner} alt="Directeur marketing externalisé en Drôme — VONAV" class="lp-banner" widths={[600, 1000, 1600]} sizes="100vw" loading="eager" />
-  </div>
-
-  <section class="section" style="--accent:var(--gold)">
-    <div class="wrap">
-      <span class="eyebrow reveal">Ce que j'apporte</span>
-      <h2 class="reveal">Un interlocuteur unique qui aligne vos leviers sur un seul objectif : le chiffre d'affaires.</h2>
-      <div class="lp-features">
-        {features.map((f) => (
-          <div class="lp-feature">
-            <h3>{f.t}</h3>
-            <p>{f.d}</p>
-          </div>
-        ))}
-      </div>
-      <div class="lp-roi reveal">
-        <strong>L'idée :</strong> un seul responsable, joignable et sur le terrain, qui pilote votre marketing comme un centre de profit — et fait monter vos équipes en compétence au passage.
-      </div>
-    </div>
-  </section>
-
-  <section class="section seg">
-    <div class="wrap">
-      <span class="eyebrow reveal">Vous gérez aussi du direct ?</span>
-      <h2 class="reveal">Voir par métier</h2>
-      <div class="seg__grid">
-        <a href="/vignerons/" class="seg__card bar-vine reveal">
-          <span class="seg__tag c-vine">Vignerons &amp; domaines</span>
-          <h3>Vendre son vin en direct</h3>
-          <p>Boutique, marque et référencement pour les domaines.</p>
-          <span class="seg__link c-vine">Découvrir <span class="arr">→</span></span>
-        </a>
-        <a href="/hebergeurs/" class="seg__card bar-river reveal">
-          <span class="seg__tag c-river">Gîtes &amp; hébergeurs</span>
-          <h3>Réservation directe</h3>
-          <p>Remplir sans les commissions des plateformes.</p>
-          <span class="seg__link c-river">Découvrir <span class="arr">→</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <Zones />
-
-  <aside class="article__cta" style="max-width:var(--maxw);margin-inline:auto">
-    <h3>Posons votre cap marketing.</h3>
-    <p>Un premier échange pour comprendre vos enjeux et chiffrer le potentiel. Gratuit et sans engagement.</p>
-    <a href="/#contact" class="btn btn--primary">Cadrer votre stratégie <span class="arr">→</span></a>
-  </aside>
-</BaseLayout>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${dest}`} />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://vonav.fr/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page déplacée — VONAV</title>
+  </head>
+  <body>
+    <p>Cette page a été déplacée. <a href="/">Aller à l'accueil</a>.</p>
+  </body>
+</html>

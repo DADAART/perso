@@ -11,7 +11,7 @@ import { NAV_LINKS, SITE } from "../data/site";
         {NAV_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
       </ul>
     </nav>
-    <a href="/#contact" class="btn btn--primary nav__cta">Diagnostic gratuit</a>
+    <a href="/#contact" class="btn btn--primary nav__cta">Audit gratuit</a>
     <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
@@ -19,7 +19,7 @@ import { NAV_LINKS, SITE } from "../data/site";
   <div class="wrap">
     <div class="mobile-menu" id="mobile-menu">
       {NAV_LINKS.map((l) => <a href={l.href}>{l.label}</a>)}
-      <a href="/#contact" class="btn btn--primary">Diagnostic gratuit</a>
+      <a href="/#contact" class="btn btn--primary">Audit gratuit</a>
     </div>
   </div>
 </header>

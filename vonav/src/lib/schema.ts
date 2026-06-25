@@ -17,7 +17,7 @@ export const ID = {
 export function localBusinessSchema(base: URL) {
   return {
     "@context": "https://schema.org",
-    "@type": ["ProfessionalService", "LocalBusiness"],
+    "@type": "ProfessionalService",
     "@id": ID.business(base),
     name: NAP.brand,
     legalName: NAP.legalName,
@@ -44,14 +44,14 @@ export function localBusinessSchema(base: URL) {
     },
     areaServed: NAP.areaServed.map((name) => ({ "@type": "AdministrativeArea", name })),
     knowsAbout: [
-      "Référencement local",
-      "SEO",
       "E-commerce",
       "Shopify",
-      "Marketing du tourisme",
-      "Œnotourisme",
-      "Réservation directe",
-      "Publicité en ligne",
+      "Optimisation du taux de conversion (CRO)",
+      "Référencement naturel (SEO)",
+      "Publicité en ligne (SEA)",
+      "Email marketing",
+      "Direction e-commerce externalisée",
+      "Stratégie e-commerce",
     ],
     openingHoursSpecification: [
       {

@@ -64,4 +64,4 @@ Une boutique n'est pas un panneau qu'on pose une fois. La vraie valeur arrive **
 
 Dans l'ordre : la plateforme, puis l'expédition, puis 3 à 5 fiches produits soignées, puis le tunnel et le cadre légal, et enfin la collecte d'emails. Inutile de tout faire d'un coup — mieux vaut une petite boutique qui vend qu'une grande qui dort.
 
-Pour aller plus loin, lisez notre guide [vendre son vin en direct](/blog/vendre-son-vin-en-direct/), et découvrez comment je peux vous aider sur la page [marketing pour les vignerons](/vignerons/). Vous préférez qu'on regarde votre cas précis ? [Demandez un diagnostic gratuit](/#contact).
+Pour aller plus loin, lisez notre guide [vendre son vin en direct](/blog/vendre-son-vin-en-direct/), et découvrez comment je peux vous aider sur la page [marketing pour les vignerons](/#offres). Vous préférez qu'on regarde votre cas précis ? [Demandez un diagnostic gratuit](/#contact).

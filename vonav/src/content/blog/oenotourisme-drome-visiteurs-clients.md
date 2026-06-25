@@ -42,4 +42,4 @@ L'œnotourisme est un sport d'équipe. Les **hébergeurs** de la vallée, les of
 
 Soyez **trouvable** avant la visite, **mémorable** pendant, et **présent** après. C'est cette chaîne — visibilité, expérience, contact, fidélisation — qui transforme le passage de l'œnotourisme en chiffre d'affaires durable.
 
-C'est précisément ce que j'aide les domaines drômois à construire : voir l'accompagnement [pour les vignerons](/vignerons/). Pour les hébergeurs qui veulent capter cette clientèle, c'est [par ici](/hebergeurs/). Envie d'en parler pour votre domaine ? [Demandez un diagnostic gratuit](/#contact).
+C'est précisément ce que j'aide les domaines drômois à construire : voir l'accompagnement [pour les vignerons](/#offres). Pour les hébergeurs qui veulent capter cette clientèle, c'est [par ici](/#offres). Envie d'en parler pour votre domaine ? [Demandez un diagnostic gratuit](/#contact).

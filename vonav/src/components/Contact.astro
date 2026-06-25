@@ -1,8 +1,7 @@
 ---
 /**
  * Section Contact — formulaire branché sur Web3Forms (gratuit, sans compte hébergé).
- * La clé d'accès est un PLACEHOLDER (FORM_BACKEND_ID) : voir ETAPES-MANUELLES.md.
- * Notification reçue sur l'e-mail associé à la clé (bonjour@vonav.com).
+ * La clé d'accès est dans PLACEHOLDERS.FORM_BACKEND_ID : voir ETAPES-MANUELLES.md.
  */
 import { PLACEHOLDERS, NAP, SITE } from "../data/site";
 ---
@@ -10,8 +9,8 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
   <div class="wrap contact__grid">
     <div class="reveal">
       <span class="eyebrow">On en parle ?</span>
-      <h2>Recevez votre diagnostic gratuit.</h2>
-      <p class="contact__sub">Dites-moi qui vous êtes et où vous en êtes. Je vous réponds sous 48 h avec un premier regard concret.</p>
+      <h2>Recevez votre audit e-commerce gratuit.</h2>
+      <p class="contact__sub">Dites-moi qui vous êtes et où vous en êtes. Je vous réponds sous 48 h avec un premier regard concret sur votre e-commerce.</p>
       <div class="contact__reassure">
         <span>Sans engagement</span>
         <span>Réponse sous 48 h</span>
@@ -20,11 +19,9 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
     </div>
     <div class="reveal">
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
-        <!-- Web3Forms : configuration -->
         <input type="hidden" name="access_key" value={PLACEHOLDERS.FORM_BACKEND_ID} />
-        <input type="hidden" name="subject" value={`Nouvelle demande de diagnostic — ${SITE.name}`} />
+        <input type="hidden" name="subject" value={`Nouvelle demande — ${SITE.name}`} />
         <input type="hidden" name="from_name" value={`Site ${SITE.name}`} />
-        <!-- Honeypot natif Web3Forms (rempli => spam) -->
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
 
         <div class="field row">
@@ -33,31 +30,29 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
         </div>
         <div class="field row">
           <div class="field"><label for="tel">Téléphone <span style="text-transform:none;letter-spacing:0">(facultatif)</span></label><input id="tel" name="tel" type="tel" placeholder="06 00 00 00 00" /></div>
-          <div class="field"><label for="profil">Vous êtes</label>
+          <div class="field"><label for="profil">Votre situation</label>
             <select id="profil" name="profil" required>
               <option value="" selected disabled>Choisir…</option>
-              <option>Vigneron / domaine</option>
-              <option>Gîte / chambres d'hôtes</option>
-              <option>Restaurant / producteur</option>
-              <option>Cave / groupe / destination</option>
+              <option>Je vends déjà en ligne</option>
+              <option>Je lance / refonds ma boutique</option>
+              <option>Je cherche une direction e-commerce</option>
               <option>Autre</option>
             </select>
           </div>
         </div>
         <div class="field"><label for="site">Votre site actuel <span style="text-transform:none;letter-spacing:0">(facultatif)</span></label><input id="site" name="site" type="text" placeholder="https://…" /></div>
-        <div class="field"><label for="message">En deux mots, votre objectif</label><textarea id="message" name="message" placeholder="Vendre plus en direct, remplir hors saison, refaire mon site…"></textarea></div>
+        <div class="field"><label for="message">En deux mots, votre objectif</label><textarea id="message" name="message" placeholder="Augmenter mes ventes, refondre ma boutique, structurer mon e-commerce…"></textarea></div>
 
-        <!-- Honeypot anti-spam supplémentaire (invisible, vérifié côté client) -->
         <div class="hp-field" aria-hidden="true">
           <label for="website_hp">Ne pas remplir</label>
           <input id="website_hp" name="website_hp" type="text" tabindex="-1" autocomplete="off" />
         </div>
 
-        <button type="submit" class="btn btn--primary">Recevoir mon diagnostic <span class="arr">→</span></button>
+        <button type="submit" class="btn btn--primary">Recevoir mon audit <span class="arr">→</span></button>
         <p class="form-error" id="formError" role="alert"></p>
       </form>
       <div class="form-success" id="formSuccess" role="status" tabindex="-1">
-        <strong>Merci !</strong> Votre demande est bien notée — je vous réponds sous 48 h avec un premier regard sur votre présence en ligne.
+        <strong>Merci !</strong> Votre demande est bien notée — je vous réponds sous 48 h avec un premier regard sur votre e-commerce.
       </div>
     </div>
   </div>
@@ -71,7 +66,6 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       errorBox.classList.remove("show");
-      // Honeypot : si rempli, on ignore silencieusement (bot)
       const hp = form.querySelector('[name="website_hp"]');
       if (hp && hp.value) return;
       if (!form.checkValidity()) {

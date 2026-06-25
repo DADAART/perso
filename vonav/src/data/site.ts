@@ -44,13 +44,7 @@ export const NAP = {
   },
   /** Zones desservies (JSON-LD areaServed) */
   areaServed: [
-    "Drôme",
-    "Valence",
-    "Vallée du Rhône",
-    "Crozes-Hermitage",
-    "Hermitage",
-    "Vallée de la Drôme",
-    "Diois",
+    "France",
   ],
   /** Coordonnées approximatives de Valence (centre-ville) pour le geo JSON-LD */
   geo: { latitude: 44.9334, longitude: 4.892 },
@@ -62,10 +56,10 @@ export const NAP = {
 export const SITE = {
   name: "VONAV",
   /** Slogan court */
-  tagline: "La vente directe pour les vignerons et le terroir de la Drôme.",
+  tagline: "Votre directeur e-commerce externalisé.",
   /** Description par défaut (fallback meta) */
   defaultDescription:
-    "Studio digital pour les vignerons de la Drôme et les acteurs du terroir : vendez et réservez en direct, sans intermédiaire qui rogne votre marge.",
+    "Directeur e-commerce externalisé à temps partagé : j'orchestre la croissance en ligne (acquisition, conversion/CRO, fidélisation) des marques et e-commerçants, sans recrutement. À distance, partout en France.",
   /** Domaine de production (sans protocole) */
   domain: "vonav.fr",
   /** Années d'expérience à afficher (harmonisé partout) */

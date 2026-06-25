@@ -45,4 +45,4 @@ Un blog qui répond aux questions de vos clients (comme celui-ci) renforce votre
 
 Dans l'ordre : fiche Google impeccable → NAP cohérent partout → des pages claires par cible → des avis en continu → du contenu régulier → quelques liens locaux. C'est un travail de fond, mais cumulatif : chaque brique consolide les autres.
 
-C'est exactement ce que je mets en place pour les acteurs du tourisme et du terroir drômois — voir l'accompagnement pour les [vignerons](/vignerons/), les [hébergeurs](/hebergeurs/) et les [caves & destinations](/caves-destinations/). Pour un état des lieux de votre présence locale, [demandez un diagnostic gratuit](/#contact).
+C'est exactement ce que je mets en place pour les acteurs du tourisme et du terroir drômois — voir l'accompagnement pour les [vignerons](/#offres), les [hébergeurs](/#offres) et les [caves & destinations](/#offres). Pour un état des lieux de votre présence locale, [demandez un diagnostic gratuit](/#contact).

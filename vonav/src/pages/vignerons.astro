@@ -1,104 +1,18 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Method from "../components/Method.astro";
-import Zones from "../components/Zones.astro";
-import { serviceSchema, breadcrumbSchema } from "../lib/schema";
-import { Image } from "astro:assets";
-import banner from "../assets/landing/vignerons.jpg";
-
-const base = Astro.site!;
-const url = base.origin + "/vignerons/";
-const title = "Marketing digital pour vignerons en Drôme — vendre son vin en direct | VONAV";
-const description =
-  "Boutique en ligne, référencement local et marque : je vous aide à vendre votre vin en direct et à remplir votre caveau, en Drôme et vallée du Rhône.";
-
-const features = [
-  { t: "Une boutique en ligne qui vend vraiment", d: "Création d'une boutique e-commerce (Shopify) pensée pour l'expédition du vin : fiches qui donnent soif, frais de port clairs, paiement sans friction, mobile d'abord." },
-  { t: "Référencement local & Google Business Profile", d: "Être trouvé sur « domaine à visiter », « dégustation Tain-l'Hermitage », « cave Crozes-Hermitage ». Fiche Google optimisée, avis, pages géolocalisées." },
-  { t: "Une marque et un récit", d: "Une identité qui vous distingue des grandes maisons et du négoce, et qui justifie votre prix : votre histoire, vos parcelles, votre façon de travailler." },
-  { t: "Photos & contenu", d: "Des visuels et des textes qui donnent envie d'ouvrir la bouteille — le vrai déclencheur d'achat en ligne comme au caveau." },
-  { t: "Email & fidélisation", d: "Lancements de millésime, club de cave, offres réservées : une clientèle directe qui revient, sans repasser par un intermédiaire." },
-  { t: "Publicité ciblée (quand c'est rentable)", d: "Acquisition payante mesurée à la marge, pas aux impressions — pour accélérer la vente directe quand la boutique est prête." },
-];
-const schemas = [
-  serviceSchema(base, {
-    name: "Marketing digital pour vignerons et domaines",
-    serviceType: "E-commerce du vin, référencement local et marketing pour domaines viticoles",
-    description,
-    url,
-  }),
-  breadcrumbSchema([
-    { name: "Accueil", url: base.origin + "/" },
-    { name: "Vignerons & domaines", url },
-  ]),
-];
+// Ancienne page (repositionnement) — redirige vers l'accueil. Noindex.
+const dest = "/";
 ---
-<BaseLayout title={title} description={description} schemas={schemas} ogImage="/og/vignerons.jpg">
-  <section class="page-hero">
-    <div class="wrap page-hero__inner">
-      <span class="eyebrow">Vignerons &amp; domaines · Drôme</span>
-      <h1>Vendez votre vin en direct. Reprenez votre marge.</h1>
-      <p>Vous faites un vin dont vous êtes fier, mais en ligne, on ne vous trouve pas — et le négoce fixe vos prix. J'aide les domaines de la Drôme (Crozes-Hermitage, Hermitage, vallée du Rhône, Diois) à vendre leurs bouteilles en direct et à remplir leur caveau, grâce à une boutique qui convertit et au référencement local.</p>
-      <div class="hero__cta" style="margin-top:2rem">
-        <a href="/#contact" class="btn btn--primary">Recevoir mon diagnostic gratuit <span class="arr">→</span></a>
-        <a href="/blog/vendre-son-vin-en-direct/" class="btn btn--ghost">Lire le guide</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap" style="margin-top:1.4rem">
-    <Image src={banner} alt="Marketing digital pour vignerons en Drôme — VONAV" class="lp-banner" widths={[600, 1000, 1600]} sizes="100vw" loading="eager" />
-  </div>
-
-  <section class="section" style="--accent:var(--vine)">
-    <div class="wrap">
-      <span class="eyebrow reveal">Le constat</span>
-      <h2 class="reveal">Le négoce sécurise vos volumes, mais c'est votre marge qui trinque.</h2>
-      <p class="lead reveal">Le confort du négoce a un prix : celui que vous ne fixez pas. L'objectif n'est pas de tout arrêter, mais de déplacer <strong>10 à 20 %</strong> de votre production vers un canal direct, où la marge vous revient entièrement. Sur un domaine de la vallée du Rhône, cette part suffit souvent à financer un demi-poste — ou simplement à respirer.</p>
-
-      <div class="lp-features">
-        {features.map((f) => (
-          <div class="lp-feature">
-            <h3>{f.t}</h3>
-            <p>{f.d}</p>
-          </div>
-        ))}
-      </div>
-
-      <div class="lp-roi reveal">
-        <strong>Le calcul :</strong> une caisse de plus vendue en direct chaque semaine peut suffire à rembourser l'accompagnement — et tout ce qui vient ensuite est de la marge regagnée.
-      </div>
-    </div>
-  </section>
-
-  <Method />
-
-  <section class="section seg">
-    <div class="wrap">
-      <span class="eyebrow reveal">À lire</span>
-      <h2 class="reveal">Pour aller plus loin</h2>
-      <div class="seg__grid">
-        <a href="/blog/vendre-son-vin-en-direct/" class="seg__card bar-vine reveal">
-          <span class="seg__tag c-vine">Guide</span>
-          <h3>Vendre son vin en direct</h3>
-          <p>Sortir de la dépendance au négoce, étape par étape.</p>
-          <span class="seg__link c-vine">Lire <span class="arr">→</span></span>
-        </a>
-        <a href="/blog/google-business-profile-domaine-gite-drome/" class="seg__card bar-gold reveal">
-          <span class="seg__tag c-gold">Guide</span>
-          <h3>Google Business Profile</h3>
-          <p>Le pas-à-pas pour un domaine en Drôme.</p>
-          <span class="seg__link c-gold">Lire <span class="arr">→</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <Zones />
-
-  <aside class="article__cta" style="max-width:var(--maxw);margin-inline:auto">
-    <h3>Combien la vente en direct pourrait-elle vous rapporter ?</h3>
-    <p>Je regarde votre présence en ligne (site, boutique, fiche Google) et je vous dis, chiffres à l'appui, par où commencer. C'est gratuit et sans engagement.</p>
-    <a href="/#contact" class="btn btn--primary">Recevoir mon diagnostic gratuit <span class="arr">→</span></a>
-  </aside>
-</BaseLayout>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${dest}`} />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://vonav.fr/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page déplacée — VONAV</title>
+  </head>
+  <body>
+    <p>Cette page a été déplacée. <a href="/">Aller à l'accueil</a>.</p>
+  </body>
+</html>

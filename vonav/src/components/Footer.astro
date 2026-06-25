@@ -11,10 +11,10 @@ const year = new Date().getFullYear();
     <div>
       <h4>Naviguer</h4>
       <ul>
-        <li><a href="/vignerons/">Vignerons &amp; domaines</a></li>
-        <li><a href="/hebergeurs/">Gîtes &amp; hébergeurs</a></li>
-        <li><a href="/caves-destinations/">Caves &amp; destinations</a></li>
+        <li><a href="/#pour-qui">Pour qui</a></li>
         <li><a href="/#methode">Méthode</a></li>
+        <li><a href="/#offres">Offres</a></li>
+        <li><a href="/#apropos">À propos</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
     </div>
@@ -23,8 +23,8 @@ const year = new Date().getFullYear();
       <ul>
         <li><a href={`mailto:${NAP.email}`}>{NAP.email}</a></li>
         <li><a href={`tel:${NAP.phoneE164}`}>{NAP.phoneDisplay}</a></li>
-        <li><a href="/#contact">Diagnostic gratuit</a></li>
-        <li>{NAP.address.locality}, {NAP.address.region} ({NAP.address.regionCode})</li>
+        <li><a href="/#contact">Audit gratuit</a></li>
+        <li>À distance, partout en France</li>
         <li><a href={SITE.social.linkedin} rel="noopener" target="_blank" aria-label="LinkedIn">LinkedIn</a></li>
       </ul>
     </div>

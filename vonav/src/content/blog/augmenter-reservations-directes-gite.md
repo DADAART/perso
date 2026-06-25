@@ -43,4 +43,4 @@ Des voyageurs satisfaits qui laissent un avis et reviennent : c'est la source de
 
 Sur 60 nuitées par an, les commissions évitées remboursent souvent un site de réservation directe **en une seule saison**. Tout ce qui vient ensuite est du gagné — à confort et à travail identiques pour vous.
 
-Pour creuser le sujet, lisez [réduire les commissions Booking & Airbnb](/blog/reduire-commissions-booking-airbnb/) et découvrez l'accompagnement [pour les hébergeurs](/hebergeurs/). Envie d'un état des lieux de votre cas ? [Demandez un diagnostic gratuit](/#contact).
+Pour creuser le sujet, lisez [réduire les commissions Booking & Airbnb](/blog/reduire-commissions-booking-airbnb/) et découvrez l'accompagnement [pour les hébergeurs](/#offres). Envie d'un état des lieux de votre cas ? [Demandez un diagnostic gratuit](/#contact).

@@ -62,10 +62,10 @@ export const NAP = {
 export const SITE = {
   name: "VONAV",
   /** Slogan court */
-  tagline: "Croissance digitale pour le tourisme & le terroir en Drôme.",
+  tagline: "La vente directe pour les vignerons et le terroir de la Drôme.",
   /** Description par défaut (fallback meta) */
   defaultDescription:
-    "Studio de croissance digitale pour les vignerons, hébergeurs et acteurs du tourisme de la Drôme : plus de ventes et de réservations en direct.",
+    "Studio digital pour les vignerons de la Drôme et les acteurs du terroir : vendez et réservez en direct, sans intermédiaire qui rogne votre marge.",
   /** Domaine de production (sans protocole) */
   domain: "vonav.fr",
   /** Années d'expérience à afficher (harmonisé partout) */

@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/google-business-profile-domaine-gite-drome.jpg
 heroImageAlt: "Entrée accueillante d'un domaine viticole de la Drôme, panneau en bois et vignes au soleil"
 ogImage: "/og/google-business-profile-domaine-gite-drome.jpg"
 tags: ["Google Business Profile", "SEO local", "Drôme"]
+draft: true
 ---
 
 Avant de visiter votre site, un futur client tape souvent le nom de votre domaine ou « gîte près de Valence » sur Google. Ce qu'il voit en premier, ce n'est pas votre site : c'est votre **fiche d'établissement Google** (Google Business Profile). Photo, note, horaires, itinéraire, bouton d'appel. Cette fiche est gratuite, et c'est l'un des outils de visibilité locale les plus puissants à votre disposition. Encore faut-il la tenir.

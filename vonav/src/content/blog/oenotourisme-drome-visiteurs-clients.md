@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/oenotourisme-drome-visiteurs-clients.jpg
 heroImageAlt: "Dégustation de vin conviviale à une table en bois dans les vignes, collines de la Drôme en arrière-plan"
 ogImage: "/og/oenotourisme-drome-visiteurs-clients.jpg"
 tags: ["Œnotourisme", "Vignerons", "Drôme"]
+draft: true
 ---
 
 La Drôme a tout pour l'œnotourisme : les coteaux de l'Hermitage et de Crozes-Hermitage, la Clairette de Die, les Côtes du Rhône, la ViaRhôna qui amène des milliers de cyclistes, et une vraie culture du terroir. Le potentiel est là. La vraie question, pour un domaine, n'est pas d'attirer du monde dans la région — c'est de transformer ces **visiteurs de passage en clients qui achètent et qui reviennent**. Voici comment.

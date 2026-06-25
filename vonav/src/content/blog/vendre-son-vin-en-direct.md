@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/vendre-son-vin-en-direct.jpg
 heroImageAlt: "Mains d'un vigneron rangeant des bouteilles de vin dans une caisse en bois, dans un caveau ensoleillé"
 ogImage: "/og/vendre-son-vin-en-direct.jpg"
 tags: ["Vendre son vin en direct", "Vignerons", "E-commerce", "SEO local"]
+draft: true
 ---
 
 Vendre au négoce, c'est confortable : on charge le camion, on encaisse, on passe au millésime suivant. Mais ce confort a un prix — celui que vous ne fixez pas. Quand le marché se tend, c'est votre marge qui absorbe le choc, jamais celle de l'intermédiaire. La vente en direct n'est pas une lubie de vigneron militant : c'est le levier le plus simple pour reprendre quelques euros par bouteille, ceux qui font la différence à la fin de l'année.

@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/creer-boutique-en-ligne-vin.jpg
 heroImageAlt: "Ordinateur portable et bouteille de vin sur une table en bois, dans un caveau en pierre"
 ogImage: "/og/creer-boutique-en-ligne-vin.jpg"
 tags: ["Vendre son vin en direct", "Vignerons", "E-commerce"]
+draft: true
 ---
 
 Vendre son vin en direct commence presque toujours par la même question : « par où je commence pour la boutique en ligne ? » Beaucoup de domaines ont déjà « un site avec une page boutique » qui ne tourne pas. Le problème n'est presque jamais le vin — c'est la mécanique autour. Voici l'ordre dans lequel s'y prendre pour une boutique qui vend vraiment.

@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/seo-local-drome-guide.jpg
 heroImageAlt: "Campagne de la Drôme : vignes, village aux toits de tuiles et collines de la vallée du Rhône"
 ogImage: "/og/seo-local-drome-guide.jpg"
 tags: ["SEO local", "Drôme", "Référencement"]
+draft: true
 ---
 
 Quand un client cherche « domaine à visiter vallée du Rhône », « gîte vallée de la Drôme » ou « caviste Crozes-Hermitage », c'est Google qui décide qui il voit en premier. Le **référencement local** (ou SEO local), c'est l'art d'être ce premier résultat. Bonne nouvelle : pour une activité ancrée dans un territoire comme la Drôme, c'est l'un des leviers les plus accessibles et les plus rentables. Voici comment s'y prendre.

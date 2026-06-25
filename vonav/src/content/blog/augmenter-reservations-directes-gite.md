@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/augmenter-reservations-directes-gite.jpg
 heroImageAlt: "Terrasse ensoleillée d'un gîte provençal, table de petit-déjeuner et vélo contre un mur en pierre"
 ogImage: "/og/augmenter-reservations-directes-gite.jpg"
 tags: ["Réservation directe", "Hébergeurs", "Gîtes"]
+draft: true
 ---
 
 Reprendre des réservations en direct, ce n'est pas quitter Booking ou Airbnb du jour au lendemain — c'est arrêter de leur confier **100 %** de vos nuitées. Voici sept leviers concrets, par ordre d'impact, pour faire monter la part de réservations directes d'un gîte ou d'une chambre d'hôtes en Drôme.

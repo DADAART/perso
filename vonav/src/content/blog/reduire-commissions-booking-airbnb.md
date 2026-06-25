@@ -7,6 +7,7 @@ heroImage: ../../assets/blog/reduire-commissions-booking-airbnb.jpg
 heroImageAlt: "Chambre d'hôtes provençale chaleureuse, fenêtre ouverte sur une vallée verdoyante en Drôme"
 ogImage: "/og/reduire-commissions-booking-airbnb.jpg"
 tags: ["Réservation directe", "Hébergeurs", "Gîtes", "Drôme"]
+draft: true
 ---
 
 Booking et Airbnb vous remplissent : c'est vrai, et c'est précieux, surtout au lancement. Mais cette visibilité a un coût récurrent. En France, la commission Booking.com tourne **généralement autour de 15 %**, et grimpe à **17–18 % voire plus** dès qu'on active les programmes Genius ou Partenaire Préféré pour rester visible. Côté Airbnb, selon le modèle de frais choisi, la ponction est comparable une fois tout additionné.

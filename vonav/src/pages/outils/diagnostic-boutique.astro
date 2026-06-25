@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ToolLeadForm from "../../components/ToolLeadForm.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import "../../styles/tools.css";
+const base = Astro.site!;
+const url = base.origin + "/outils/diagnostic-boutique/";
+const title = "Diagnostic e-commerce : votre boutique est-elle prête à passer un cap ? | VONAV";
+const description = "10 questions pour évaluer la maturité de votre boutique en ligne et obtenir vos priorités. Gratuit, sans inscription pour le score.";
+const questions = [
+  { id: "q1", t: "Votre page d'accueil dit en 3 secondes quoi vous vendez et pour qui ?", r: "Clarifiez votre proposition de valeur dès le haut de page.", l: "" },
+  { id: "q2", t: "Votre boutique est rapide et impeccable sur mobile ?", r: "Optimisez vitesse et expérience mobile (la majorité du trafic).", l: "" },
+  { id: "q3", t: "Vos fiches produits ont photos multiples, bénéfices et réassurance ?", r: "Renforcez vos fiches produits.", l: "/blog/ameliorer-taux-conversion-ecommerce/" },
+  { id: "q4", t: "Votre tunnel propose le paiement express et le checkout invité ?", r: "Raccourcissez le tunnel et ajoutez le paiement express.", l: "/blog/ameliorer-taux-conversion-ecommerce/" },
+  { id: "q5", t: "Votre suivi analytics et conversions est correctement posé ?", r: "Posez un tracking propre pour piloter sur des chiffres justes.", l: "/blog/kpis-ecommerce-qui-comptent/" },
+  { id: "q6", t: "Vous capturez les e-mails de vos visiteurs (newsletter, pop-in) ?", r: "Mettez en place la capture d'e-mails : votre canal le plus rentable.", l: "" },
+  { id: "q7", t: "Vous relancez automatiquement les paniers abandonnés ?", r: "Activez les relances de paniers abandonnés.", l: "/outils/cout-paniers-abandonnes/" },
+  { id: "q8", t: "Vous avez des scénarios e-mail (bienvenue, post-achat, fidélité) ?", r: "Lancez vos scénarios e-mail de fidélisation.", l: "/blog/emailing-ecommerce-qui-vend/" },
+  { id: "q9", t: "Vous collectez et affichez des avis clients ?", r: "Collectez et affichez des avis : la meilleure réassurance.", l: "" },
+  { id: "q10", t: "Vous connaissez votre coût d'acquisition et votre marge réelle ?", r: "Mesurez votre CAC et votre marge nette réelle.", l: "/outils/marge-nette-ecommerce/" },
+];
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+    { name: "Diagnostic e-commerce", url },
+  ]),
+  { "@context": "https://schema.org", "@type": "WebApplication", name: "Diagnostic e-commerce", url, applicationCategory: "BusinessApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, description, provider: { "@type": "Organization", name: "VONAV", url: base.origin + "/" } },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="vn-host">
+    <div class="vn-wrap">
+      <header>
+        <p class="vn-eyebrow">VONAV · Outil gratuit</p>
+        <h1>Votre boutique est-elle prête à passer un cap ?</h1>
+        <p class="vn-sub">10 questions, 1 minute. Obtenez un score de maturité et vos priorités concrètes.</p>
+      </header>
+      <div class="vn-calc">
+        <section class="vn-card" aria-label="Questionnaire">
+          <h2>Répondez par oui ou non</h2>
+          <p class="vn-hint">Soyez honnête : c'est là que se cachent les leviers.</p>
+          {questions.map((q, i) => (
+            <div class="vn-q">
+              <span class="vn-qt">{i + 1}. {q.t}</span>
+              <div class="vn-qopts">
+                <label><input type="radio" name={q.id} value="oui"> Oui</label>
+                <label><input type="radio" name={q.id} value="non" checked> Non</label>
+              </div>
+            </div>
+          ))}
+        </section>
+        <section class="vn-readout" aria-live="polite">
+          <p class="vn-rk">Votre diagnostic</p>
+          <div class="vn-gain">
+            <p class="vn-glab">Score de maturité</p>
+            <div class="vn-gfig"><span id="q-score">0</span> / 100</div>
+            <p class="vn-gpct" id="q-band">—</p>
+          </div>
+          <p class="vn-insight" style="border-top:0;padding-top:6px;color:var(--paper-dim)">Vos priorités :</p>
+          <ul class="vn-reco" id="q-reco"></ul>
+        </section>
+      </div>
+      <ToolLeadForm tool="Diagnostic e-commerce" />
+      <div class="vn-method">
+        <h3>Comment lire votre score</h3>
+        <p>Chaque « oui » vaut 10 points. En dessous de 40, des fondations sont à poser avant d'accélérer. Entre 40 et 70, quelques chantiers prioritaires. Au-delà de 70, vous êtes solide — place au peaufinage et à l'échelle.</p>
+      </div>
+      <footer class="vn-foot">
+        <p class="vn-credit">Outil créé par <a href="/">VONAV</a> — direction e-commerce externalisée.</p>
+        <a class="vn-cta" href="/#contact">Attaquer mes priorités <span>→</span></a>
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
+<script define:vars={{ DATA: questions }}>
+  (function(){
+    "use strict";
+    var $=function(id){return document.getElementById(id);};
+    var reco=$('q-reco'); if(!reco) return;
+    function compute(){
+      var score=0, weak=[];
+      DATA.forEach(function(q){
+        var sel=document.querySelector('input[name="'+q.id+'"]:checked');
+        if(sel && sel.value==='oui'){ score+=10; }
+        else { weak.push(q); }
+      });
+      $('q-score').textContent=score;
+      var band;
+      if(score<=40) band="Fondations à poser — sécurisez les bases avant d'accélérer.";
+      else if(score<=70) band="Sur la bonne voie — quelques chantiers prioritaires.";
+      else if(score<=90) band="Solide — place au peaufinage.";
+      else band="Prêt à passer un cap.";
+      $('q-band').textContent=band;
+      reco.innerHTML='';
+      if(weak.length===0){
+        var li=document.createElement('li'); li.className='vn-ok';
+        li.textContent="Tout est au vert — concentrez-vous sur l'échelle.";
+        reco.appendChild(li);
+      } else {
+        weak.forEach(function(q){
+          var li=document.createElement('li');
+          if(q.l){ var a=document.createElement('a'); a.href=q.l; a.textContent=q.r; li.appendChild(a); }
+          else { li.textContent=q.r; }
+          reco.appendChild(li);
+        });
+      }
+      var ctx=$('tool-context');
+      if(ctx) ctx.value='Score '+score+'/100 | '+band+' | Priorites: '+(weak.length?weak.map(function(q){return q.r;}).join(' / '):'aucune');
+    }
+    DATA.forEach(function(q){
+      document.querySelectorAll('input[name="'+q.id+'"]').forEach(function(r){ r.addEventListener('change', compute); });
+    });
+    compute();
+  })();
+</script>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ToolLeadForm from "../../components/ToolLeadForm.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import "../../styles/tools.css";
+const base = Astro.site!;
+const url = base.origin + "/outils/marge-nette-ecommerce/";
+const title = "Calculateur de marge nette réelle par commande | VONAV";
+const description = "Calculez ce qu'il vous reste vraiment sur chaque commande, une fois retirés le coût produit, l'expédition, les frais de paiement et la publicité.";
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+    { name: "Marge nette réelle", url },
+  ]),
+  { "@context": "https://schema.org", "@type": "WebApplication", name: "Calculateur de marge nette réelle", url, applicationCategory: "BusinessApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, description, provider: { "@type": "Organization", name: "VONAV", url: base.origin + "/" } },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="vn-host">
+    <div class="vn-wrap">
+      <header>
+        <p class="vn-eyebrow">VONAV · Outil gratuit</p>
+        <h1>Ce qu'il vous reste vraiment sur chaque commande.</h1>
+        <p class="vn-sub">Beaucoup pilotent au chiffre d'affaires. Ce qui compte, c'est la marge nette — une fois tous les coûts retirés.</p>
+      </header>
+      <div class="vn-calc">
+        <section class="vn-card" aria-label="Vos paramètres">
+          <h2>Vos chiffres</h2>
+          <p class="vn-hint">Par commande. Tout reste dans votre navigateur.</p>
+          <div class="vn-field"><label for="prix">Prix de vente (panier moyen)</label><div class="vn-input"><input id="prix" type="number" min="0" step="1" value="65" inputmode="decimal"><span class="vn-unit">€</span></div></div>
+          <div class="vn-field"><label for="cprod">Coût du produit (achat / fabrication)</label><div class="vn-input"><input id="cprod" type="number" min="0" step="1" value="25" inputmode="decimal"><span class="vn-unit">€</span></div></div>
+          <div class="vn-field"><label for="exped">Frais d'expédition à votre charge</label><div class="vn-input"><input id="exped" type="number" min="0" step="0.5" value="5" inputmode="decimal"><span class="vn-unit">€</span></div></div>
+          <div class="vn-field"><label for="fpaie">Frais de paiement</label><div class="vn-input"><input id="fpaie" type="number" min="0" max="20" step="0.1" value="2" inputmode="decimal"><span class="vn-unit">%</span></div></div>
+          <div class="vn-field"><label for="cac">Coût d'acquisition par commande (pub)</label><div class="vn-input"><input id="cac" type="number" min="0" step="1" value="8" inputmode="decimal"><span class="vn-unit">€</span></div></div>
+        </section>
+        <section class="vn-readout" aria-live="polite">
+          <p class="vn-rk">Ce qu'il vous reste vraiment</p>
+          <div class="vn-rrow"><span class="vn-rlab">Prix de vente</span><span class="vn-rfig" id="r-prix">—</span></div>
+          <div class="vn-rrow"><span class="vn-rlab">− Coûts (produit, expé, paiement, pub)</span><span class="vn-rfig" id="r-cout">—</span></div>
+          <div class="vn-gain">
+            <p class="vn-glab">Marge nette par commande</p>
+            <div class="vn-gfig" id="r-marge">—</div>
+            <p class="vn-gpct">soit <b id="r-pct">—</b> du prix de vente</p>
+          </div>
+          <p class="vn-insight">Marge brute (hors pub & frais) : <b id="r-brute">—</b>. <span id="r-verdict"></span></p>
+        </section>
+      </div>
+      <ToolLeadForm tool="Marge nette réelle" />
+      <div class="vn-method">
+        <h3>Comment ce calcul fonctionne</h3>
+        <p>On part du prix de vente et on retire, un à un, les coûts qui pèsent réellement sur chaque commande. Ce qui reste est votre marge nette — la seule qui paie vos charges et votre temps.</p>
+        <span class="vn-eq">Marge nette = Prix − Coût produit − Expédition − Frais de paiement − Acquisition</span>
+      </div>
+      <footer class="vn-foot">
+        <p class="vn-credit">Outil créé par <a href="/">VONAV</a> — direction e-commerce externalisée.</p>
+        <a class="vn-cta" href="/#contact">Améliorer ma marge <span>→</span></a>
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+(function(){
+  "use strict";
+  var euro=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:2});
+  var $=function(id){return document.getElementById(id);};
+  if(!$('prix'))return;
+  var els=['prix','cprod','exped','fpaie','cac'].map($);
+  function num(el,f){var v=parseFloat(el.value);return isFinite(v)?v:f;}
+  function compute(){
+    var prix=Math.max(0,num(els[0],0)),cprod=Math.max(0,num(els[1],0)),exped=Math.max(0,num(els[2],0)),
+        fpaie=Math.max(0,num(els[3],0))/100,cac=Math.max(0,num(els[4],0));
+    var cout=cprod+exped+prix*fpaie+cac;
+    var marge=prix-cout;
+    var mpct=prix>0?marge/prix*100:0;
+    var brute=prix>0?(prix-cprod)/prix*100:0;
+    $('r-prix').textContent=euro.format(prix);
+    $('r-cout').textContent=euro.format(cout);
+    $('r-marge').textContent=(marge>=0?'':'– ')+euro.format(Math.abs(marge));
+    $('r-pct').textContent=(mpct>=0?'':'–')+Math.abs(mpct).toLocaleString('fr-FR',{maximumFractionDigits:0})+' %';
+    $('r-brute').textContent=brute.toLocaleString('fr-FR',{maximumFractionDigits:0})+' %';
+    var v;
+    if(marge<0)v="Vous vendez à perte sur cette commande.";
+    else if(mpct<10)v="Marge très mince — chaque coût compte.";
+    else if(mpct<25)v="Marge correcte, mais peu d'air pour investir.";
+    else v="Marge confortable.";
+    $('r-verdict').textContent=v;
+    var ctx=$('tool-context');
+    if(ctx)ctx.value='Prix '+prix+'EUR | Produit '+cprod+' | Expe '+exped+' | Paiement '+(fpaie*100)+'% | Pub '+cac+' | Marge nette '+marge.toFixed(2)+'EUR ('+mpct.toFixed(0)+'%) | Marge brute '+brute.toFixed(0)+'%';
+  }
+  els.forEach(function(el){el.addEventListener('input',compute);});
+  compute();
+})();
+</script>

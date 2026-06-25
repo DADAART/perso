@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ToolLeadForm from "../../components/ToolLeadForm.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import "../../styles/tools.css";
+const base = Astro.site!;
+const url = base.origin + "/outils/simulateur-objectif-ca/";
+const title = "Simulateur d'objectif de chiffre d'affaires e-commerce | VONAV";
+const description = "Fixez un objectif de CA et découvrez le trafic, le taux de conversion et le panier nécessaires pour l'atteindre. Le plan chiffré, sans tableur.";
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+    { name: "Simulateur d'objectif de CA", url },
+  ]),
+  { "@context": "https://schema.org", "@type": "WebApplication", name: "Simulateur d'objectif de CA", url, applicationCategory: "BusinessApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, description, provider: { "@type": "Organization", name: "VONAV", url: base.origin + "/" } },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="vn-host">
+    <div class="vn-wrap">
+      <header>
+        <p class="vn-eyebrow">VONAV · Outil gratuit</p>
+        <h1>Ce qu'il vous faut pour atteindre votre objectif.</h1>
+        <p class="vn-sub">Fixez un cap de chiffre d'affaires. L'outil calcule le trafic — ou le taux de conversion — nécessaire pour y arriver.</p>
+      </header>
+      <div class="vn-calc">
+        <section class="vn-card" aria-label="Vos paramètres">
+          <h2>Votre objectif</h2>
+          <p class="vn-hint">Tout reste dans votre navigateur.</p>
+          <div class="vn-field"><label for="obj">Objectif de CA</label><div class="vn-input"><input id="obj" type="number" min="0" step="500" value="50000" inputmode="numeric"><span class="vn-unit">€ / mois</span></div></div>
+          <div class="vn-field"><label for="panier">Panier moyen</label><div class="vn-input"><input id="panier" type="number" min="1" step="1" value="65" inputmode="decimal"><span class="vn-unit">€</span></div></div>
+          <div class="vn-field"><label for="cvr">Taux de conversion actuel</label><div class="vn-input"><input id="cvr" type="number" min="0.1" max="100" step="0.1" value="1.8" inputmode="decimal"><span class="vn-unit">%</span></div></div>
+          <div class="vn-field"><label for="vis">Visiteurs actuels / mois</label><div class="vn-input"><input id="vis" type="number" min="0" step="100" value="10000" inputmode="numeric"><span class="vn-unit">/ mois</span></div></div>
+        </section>
+        <section class="vn-readout" aria-live="polite">
+          <p class="vn-rk">Pour atteindre votre objectif</p>
+          <div class="vn-rrow"><span class="vn-rlab">Commandes nécessaires / mois</span><span class="vn-rfig" id="r-cmd">—</span></div>
+          <div class="vn-gain">
+            <p class="vn-glab">Visiteurs nécessaires / mois (à conversion constante)</p>
+            <div class="vn-gfig" id="r-vis">—</div>
+            <p class="vn-gpct">soit ~<b id="r-visday">—</b> / jour · <b id="r-mult">—</b> votre trafic actuel</p>
+          </div>
+          <p class="vn-insight">Autre voie : à trafic constant, viser un taux de conversion de <b id="r-cvrneeded">—</b> (vs <b id="r-cvrnow">—</b> aujourd'hui).</p>
+        </section>
+      </div>
+      <ToolLeadForm tool="Simulateur d'objectif de CA" />
+      <div class="vn-method">
+        <h3>Comment ce calcul fonctionne</h3>
+        <p>Votre objectif se traduit d'abord en nombre de commandes, puis en trafic (à conversion constante) — ou, à l'inverse, en taux de conversion à atteindre avec votre trafic actuel.</p>
+        <span class="vn-eq">Commandes = Objectif ÷ Panier · Visiteurs = Commandes ÷ Taux de conversion</span>
+      </div>
+      <footer class="vn-foot">
+        <p class="vn-credit">Outil créé par <a href="/">VONAV</a> — direction e-commerce externalisée.</p>
+        <a class="vn-cta" href="/#contact">Construire mon plan <span>→</span></a>
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+(function(){
+  "use strict";
+  var euro=new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0});
+  var $=function(id){return document.getElementById(id);};
+  if(!$('obj'))return;
+  var els=['obj','panier','cvr','vis'].map($);
+  function num(el,f){var v=parseFloat(el.value);return isFinite(v)?v:f;}
+  function compute(){
+    var obj=Math.max(0,num(els[0],0)),panier=Math.max(1,num(els[1],1)),
+        cvr=Math.max(0.01,num(els[2],0.01))/100,vis=Math.max(0,num(els[3],0));
+    var cmd=obj/panier;
+    var visNeeded=cmd/cvr;
+    var visDay=visNeeded/30;
+    var mult=vis>0?visNeeded/vis:0;
+    var cvrNeeded=vis>0?cmd/vis*100:0;
+    $('r-cmd').textContent=euro.format(Math.ceil(cmd));
+    $('r-vis').textContent=euro.format(Math.ceil(visNeeded));
+    $('r-visday').textContent=euro.format(Math.ceil(visDay))+' visiteurs';
+    $('r-mult').textContent=vis>0?('× '+mult.toLocaleString('fr-FR',{maximumFractionDigits:1})):'—';
+    $('r-cvrneeded').textContent=vis>0?(cvrNeeded.toLocaleString('fr-FR',{maximumFractionDigits:2})+' %'):'—';
+    $('r-cvrnow').textContent=(cvr*100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' %';
+    var ctx=$('tool-context');
+    if(ctx)ctx.value='Objectif '+obj+'EUR/mois | Panier '+panier+' | CVR '+(cvr*100)+'% | Visiteurs actuels '+vis+' | Commandes/mois '+Math.ceil(cmd)+' | Visiteurs requis/mois '+Math.ceil(visNeeded)+' | CVR requis a trafic constant '+(vis>0?cvrNeeded.toFixed(2)+'%':'NA');
+  }
+  els.forEach(function(el){el.addEventListener('input',compute);});
+  compute();
+})();
+</script>

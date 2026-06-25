@@ -89,3 +89,18 @@ details.vn-embed pre{margin:10px 0 0;background:var(--ink);color:var(--paper);fo
 .vn-leadok{display:none;background:var(--ink);color:var(--paper);border-radius:var(--r);padding:20px 22px;max-width:680px;font-size:15px;margin-top:30px}
 .vn-leadok.show{display:block}
 @media (prefers-reduced-motion: reduce){.vn-levbar span{transition:none}}
+/* Diagnostic / quiz */
+.vn-q{padding:14px 0;border-bottom:1px solid var(--line)}
+.vn-q:last-child{border-bottom:0}
+.vn-qt{font-size:14px;font-weight:500;margin:0 0 8px;display:block}
+.vn-qopts{display:flex;gap:8px}
+.vn-qopts label{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-family:var(--mono);border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer;background:var(--paper);color:var(--muted)}
+.vn-qopts input{position:absolute;opacity:0;width:0;height:0}
+.vn-qopts label:has(input:checked){border-color:var(--ink);color:var(--ink);background:#fff;font-weight:600}
+.vn-qopts label:focus-within{box-shadow:0 0 0 3px rgba(22,36,29,.12)}
+.vn-reco{list-style:none;padding:0;margin:12px 0 0}
+.vn-reco li{font-size:13.5px;color:var(--paper);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.09);display:flex;gap:8px;align-items:flex-start}
+.vn-reco li::before{content:"→";color:var(--brass-bright);flex:none}
+.vn-reco a{color:var(--brass-bright)}
+.vn-reco .vn-ok{color:var(--paper-dim)}
+.vn-reco .vn-ok::before{content:"✓"}

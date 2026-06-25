@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/site";
+import { breadcrumbSchema } from "../../lib/schema";
+const base = Astro.site!;
+const title = `Outils e-commerce gratuits — conversion, CAC, ROAS | ${SITE.name}`;
+const description = "Des calculateurs gratuits pour piloter votre e-commerce : potentiel de croissance, rentabilité de l'acquisition (CAC/LTV), seuil de ROAS, paniers abandonnés.";
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+  ]),
+];
+const tools = [
+  { href: "/outils/calculateur-croissance/", tag: "Croissance", h: "Calculateur de croissance", p: "Combien votre boutique peut générer en plus, à trafic constant, en jouant sur conversion, panier et fréquence." },
+  { href: "/outils/calculateur-cac-ltv/", tag: "Rentabilité", h: "Calculateur CAC / LTV", p: "Votre acquisition est-elle rentable ? Comparez la valeur vie client au coût d'acquisition." },
+  { href: "/outils/seuil-rentabilite-roas/", tag: "Publicité", h: "ROAS d'équilibre", p: "À partir de quel ROAS votre publicité devient rentable, selon votre marge." },
+  { href: "/outils/cout-paniers-abandonnes/", tag: "Conversion", h: "Coût des paniers abandonnés", p: "Ce que les paniers abandonnés vous coûtent par an — et ce qu'une relance récupère." },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="page-hero">
+    <div class="wrap page-hero__inner">
+      <span class="eyebrow">Outils</span>
+      <h1>Des outils gratuits pour piloter votre e-commerce.</h1>
+      <p>Des calculateurs concrets, sans inscription : entrez vos chiffres, obtenez une réponse claire. À utiliser autant de fois que vous voulez.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="seg__grid">
+        {tools.map((t) => (
+          <a href={t.href} class="seg__card bar-vine reveal">
+            <span class="seg__tag c-vine">{t.tag}</span>
+            <h3>{t.h}</h3>
+            <p>{t.p}</p>
+            <span class="seg__link c-vine">Ouvrir l'outil <span class="arr">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+/**
+ * Capture e-mail OPTIONNELLE pour les outils.
+ * Les chiffres ne sont envoyés que si l'utilisateur soumet le formulaire.
+ * Web3Forms + consentement + event GTM generate_lead.
+ * Le champ caché #tool-context est rempli par le script de chaque outil.
+ */
+import { PLACEHOLDERS, SITE } from "../data/site";
+const { tool = "Outil" } = Astro.props;
+---
+<form class="vn-lead" id="toolLeadForm" novalidate>
+  <h2>Recevez votre plan d'action personnalisé</h2>
+  <p>Laissez votre e-mail : je vous renvoie une lecture de vos chiffres + 2-3 actions prioritaires, sous 48 h. Vos chiffres ne sont transmis que si vous cliquez.</p>
+  <input type="hidden" name="access_key" value={PLACEHOLDERS.FORM_BACKEND_ID} />
+  <input type="hidden" name="subject" value={`Lead outil — ${tool}`} />
+  <input type="hidden" name="from_name" value={`Outil ${SITE.name}`} />
+  <input type="hidden" name="outil" value={tool} />
+  <input type="hidden" name="contexte" id="tool-context" value="" />
+  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+  <div class="vn-leadrow">
+    <input type="email" name="email" required placeholder="vous@domaine.fr" aria-label="Votre adresse e-mail" />
+    <button type="submit" class="btn btn--primary">Recevoir mon plan <span class="arr">→</span></button>
+  </div>
+  <label class="vn-consent"><input type="checkbox" name="consent" required /> <span>J'accepte d'être recontacté(e) par {SITE.name} au sujet de ma demande. Voir la <a href="/politique-confidentialite">politique de confidentialité</a>.</span></label>
+  <p class="vn-leaderr" id="toolLeadErr" role="alert"></p>
+</form>
+<div class="vn-leadok" id="toolLeadOk" role="status" tabindex="-1"><strong>Merci !</strong> Je vous réponds sous 48 h avec une lecture concrète de vos chiffres.</div>
+
+<script>
+  const f = document.getElementById("toolLeadForm");
+  const ok = document.getElementById("toolLeadOk");
+  const err = document.getElementById("toolLeadErr");
+  if (f) {
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      err.textContent = "";
+      const hp = f.querySelector('[name="botcheck"]');
+      if (hp && hp.checked) return;
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      const btn = f.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.disabled = true; btn.textContent = "Envoi…";
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST", body: new FormData(f), headers: { Accept: "application/json" },
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success) {
+          f.style.display = "none";
+          ok.classList.add("show");
+          if (ok.focus) ok.focus();
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "generate_lead", form: "outil" });
+        } else { throw new Error(json.message || "Échec de l'envoi"); }
+      } catch (_) {
+        btn.disabled = false; btn.innerHTML = original;
+        err.textContent = "Une erreur s'est produite. Réessayez dans un instant.";
+      }
+    });
+  }
+</script>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ToolLeadForm from "../../components/ToolLeadForm.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import "../../styles/tools.css";
+const base = Astro.site!;
+const url = base.origin + "/outils/seuil-rentabilite-roas/";
+const title = "Calculateur de ROAS d'équilibre (seuil de rentabilité pub) | VONAV";
+const description = "Trouvez le ROAS minimum pour que votre publicité soit rentable, selon votre marge — et voyez si votre ROAS actuel vous fait gagner ou perdre de l'argent.";
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+    { name: "ROAS d'équilibre", url },
+  ]),
+  { "@context": "https://schema.org", "@type": "WebApplication", name: "Calculateur de ROAS d'équilibre", url, applicationCategory: "BusinessApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, description, provider: { "@type": "Organization", name: "VONAV", url: base.origin + "/" } },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="vn-host">
+    <div class="vn-wrap">
+      <header>
+        <p class="vn-eyebrow">VONAV · Outil gratuit</p>
+        <h1>À partir de quel ROAS votre pub est rentable.</h1>
+        <p class="vn-sub">Votre marge décide du ROAS minimum à atteindre. En dessous, chaque euro de publicité vous coûte de l'argent.</p>
+      </header>
+      <div class="vn-calc">
+        <section class="vn-card" aria-label="Vos paramètres">
+          <h2>Vos chiffres</h2>
+          <p class="vn-hint">Tout reste dans votre navigateur.</p>
+          <div class="vn-field"><label for="marge">Marge brute (avant publicité)</label><div class="vn-input"><input id="marge" type="number" min="1" max="100" step="1" value="40" inputmode="decimal"><span class="vn-unit">%</span></div></div>
+          <div class="vn-field"><label for="roas">Votre ROAS actuel <span style="font-weight:400;color:var(--muted)">(facultatif)</span></label><div class="vn-input"><input id="roas" type="number" min="0" step="0.1" value="3" inputmode="decimal"><span class="vn-unit">x</span></div></div>
+        </section>
+        <section class="vn-readout" aria-live="polite">
+          <p class="vn-rk">Seuil de rentabilité publicitaire</p>
+          <div class="vn-rrow"><span class="vn-rlab">Marge brute</span><span class="vn-rfig" id="r-marge">—</span></div>
+          <div class="vn-rrow"><span class="vn-rlab">Votre ROAS actuel</span><span class="vn-rfig" id="r-roas">—</span></div>
+          <div class="vn-gain">
+            <p class="vn-glab">ROAS d'équilibre</p>
+            <div class="vn-gfig" id="r-be">—</div>
+            <p class="vn-gpct" id="r-status">—</p>
+          </div>
+          <p class="vn-insight">Résultat par euro de publicité dépensé, à votre ROAS actuel : <b id="r-pereuro">—</b> de marge.</p>
+        </section>
+      </div>
+      <ToolLeadForm tool="ROAS d'équilibre" />
+      <div class="vn-method">
+        <h3>Comment ce calcul fonctionne</h3>
+        <p>Pour 1 € de publicité, vous générez « ROAS » euros de chiffre d'affaires, dont une part = votre marge. Le seuil est atteint quand cette marge couvre exactement le coût publicitaire.</p>
+        <span class="vn-eq">ROAS d'équilibre = 1 ÷ Marge brute · Marge par € de pub = ROAS × Marge − 1</span>
+      </div>
+      <footer class="vn-foot">
+        <p class="vn-credit">Outil créé par <a href="/">VONAV</a> — direction e-commerce externalisée.</p>
+        <a class="vn-cta" href="/#contact">Rendre ma pub rentable <span>→</span></a>
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+(function(){
+  "use strict";
+  var euro=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:2});
+  var $=function(id){return document.getElementById(id);};
+  if(!$('marge'))return;
+  var elM=$('marge'),elR=$('roas');
+  function num(el,f){var v=parseFloat(el.value);return isFinite(v)?v:f;}
+  function compute(){
+    var marge=Math.min(100,Math.max(1,num(elM,1)))/100;
+    var roas=Math.max(0,num(elR,0));
+    var be=1/marge;
+    var perEuro=roas*marge-1;
+    $('r-marge').textContent=(marge*100).toLocaleString('fr-FR',{maximumFractionDigits:0})+' %';
+    $('r-roas').textContent=roas>0?roas.toLocaleString('fr-FR',{maximumFractionDigits:1})+' x':'—';
+    $('r-be').textContent=be.toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1})+' x';
+    $('r-pereuro').textContent=(perEuro>=0?'+ ':'– ')+euro.format(Math.abs(perEuro));
+    var s;
+    if(roas<=0)s="Renseignez votre ROAS pour vous situer.";
+    else if(roas<be)s="⚠ En dessous du seuil — votre pub perd de l'argent.";
+    else if(roas<be*1.2)s="Juste au-dessus du seuil — rentabilité fragile.";
+    else s="Au-dessus du seuil — votre pub est rentable.";
+    $('r-status').textContent=s;
+    var ctx=$('tool-context');
+    if(ctx)ctx.value='Marge '+(marge*100)+'% | ROAS actuel '+roas+'x | ROAS equilibre '+be.toFixed(2)+'x | Marge/EUR pub '+perEuro.toFixed(2);
+  }
+  elM.addEventListener('input',compute);elR.addEventListener('input',compute);compute();
+})();
+</script>

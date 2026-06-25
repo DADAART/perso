@@ -41,3 +41,5 @@ On peut noyer un e-commerce sous les chiffres et piloter quand même à l'aveugl
 Pas besoin d'une usine à gaz. Cinq à sept indicateurs, suivis chaque semaine pour les opérationnels (conversion, panier, abandon) et chaque mois pour les stratégiques (CAC, LTV, réachat, marge). La règle d'or : un indicateur ne sert que si une **décision** en découle. Si vous ne savez pas quoi faire d'un chiffre, sortez-le du tableau.
 
 C'est exactement cette lecture orientée marge qui distingue un pilotage sérieux d'un suivi cosmétique. Pour agir sur ces chiffres, voyez [les 12 leviers de conversion](/blog/ameliorer-taux-conversion-ecommerce/) et [comment réduire votre coût d'acquisition](/blog/reduire-cout-acquisition-cac-ecommerce/). Envie qu'on bâtisse votre tableau de bord ? L'[audit est gratuit](/#contact).
+
+> 🧮 **Passez vos chiffres au calcul** : le [calculateur de croissance e-commerce](/outils/calculateur-croissance/) estime, à trafic constant, le chiffre d'affaires que votre boutique peut générer en plus.

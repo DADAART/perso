@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ToolLeadForm from "../../components/ToolLeadForm.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import "../../styles/tools.css";
+const base = Astro.site!;
+const url = base.origin + "/outils/cout-paniers-abandonnes/";
+const title = "Calculateur du coût des paniers abandonnés | VONAV";
+const description = "Estimez combien vous coûtent les paniers abandonnés chaque année, et combien une séquence de relance pourrait vous faire récupérer.";
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+    { name: "Coût des paniers abandonnés", url },
+  ]),
+  { "@context": "https://schema.org", "@type": "WebApplication", name: "Calculateur du coût des paniers abandonnés", url, applicationCategory: "BusinessApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, description, provider: { "@type": "Organization", name: "VONAV", url: base.origin + "/" } },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="vn-host">
+    <div class="vn-wrap">
+      <header>
+        <p class="vn-eyebrow">VONAV · Outil gratuit</p>
+        <h1>Combien vous coûtent les paniers abandonnés.</h1>
+        <p class="vn-sub">7 paniers sur 10 sont abandonnés en moyenne. Voyez ce que ça représente — et ce qu'une relance peut récupérer.</p>
+      </header>
+      <div class="vn-calc">
+        <section class="vn-card" aria-label="Vos paramètres">
+          <h2>Vos chiffres</h2>
+          <p class="vn-hint">Tout reste dans votre navigateur.</p>
+          <div class="vn-field"><label for="carts">Paniers créés par mois</label><div class="vn-input"><input id="carts" type="number" min="0" step="10" value="800" inputmode="numeric"><span class="vn-unit">/ mois</span></div></div>
+          <div class="vn-field"><label for="abandon">Taux d'abandon</label><div class="vn-input"><input id="abandon" type="number" min="0" max="100" step="1" value="70" inputmode="decimal"><span class="vn-unit">%</span></div></div>
+          <div class="vn-field"><label for="panier">Panier moyen</label><div class="vn-input"><input id="panier" type="number" min="0" step="1" value="65" inputmode="decimal"><span class="vn-unit">€</span></div></div>
+          <div class="vn-field"><label for="recup">Taux de récupération visé (relances)</label><div class="vn-input"><input id="recup" type="number" min="0" max="100" step="1" value="10" inputmode="decimal"><span class="vn-unit">%</span></div></div>
+        </section>
+        <section class="vn-readout" aria-live="polite">
+          <p class="vn-rk">Manque à gagner annuel</p>
+          <div class="vn-rrow"><span class="vn-rlab">Paniers abandonnés / mois</span><span class="vn-rfig" id="r-nb">—</span></div>
+          <div class="vn-rrow"><span class="vn-rlab">Valeur abandonnée / mois</span><span class="vn-rfig" id="r-mois">—</span></div>
+          <div class="vn-gain">
+            <p class="vn-glab">Valeur abandonnée par an</p>
+            <div class="vn-gfig" id="r-an">—</div>
+            <p class="vn-gpct">récupérable avec relances : <b id="r-recup">—</b> / an</p>
+          </div>
+          <p class="vn-insight">Une séquence de relance (e-mail + SMS) récupère couramment <b>5 à 15 %</b> des paniers abandonnés — c'est l'un des automatismes les plus rentables.</p>
+        </section>
+      </div>
+      <ToolLeadForm tool="Coût des paniers abandonnés" />
+      <div class="vn-method">
+        <h3>Comment ce calcul fonctionne</h3>
+        <p>On estime la valeur des paniers jamais payés, puis la part qu'une relance bien faite peut transformer en commandes.</p>
+        <span class="vn-eq">Perdu/an = Paniers × Taux d'abandon × Panier × 12 · Récupérable = Perdu × Taux de récupération</span>
+      </div>
+      <footer class="vn-foot">
+        <p class="vn-credit">Outil créé par <a href="/">VONAV</a> — direction e-commerce externalisée.</p>
+        <a class="vn-cta" href="/#contact">Mettre en place mes relances <span>→</span></a>
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+(function(){
+  "use strict";
+  var euro=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  var $=function(id){return document.getElementById(id);};
+  if(!$('carts'))return;
+  var els=['carts','abandon','panier','recup'].map($);
+  function num(el,f){var v=parseFloat(el.value);return isFinite(v)?v:f;}
+  function compute(){
+    var carts=Math.max(0,num(els[0],0)),abandon=Math.max(0,num(els[1],0))/100,
+        panier=Math.max(0,num(els[2],0)),recup=Math.max(0,num(els[3],0))/100;
+    var nb=carts*abandon;
+    var mois=nb*panier;
+    var an=mois*12;
+    var recupVal=an*recup;
+    $('r-nb').textContent=Math.round(nb).toLocaleString('fr-FR');
+    $('r-mois').textContent=euro.format(mois);
+    $('r-an').textContent=euro.format(an);
+    $('r-recup').textContent=euro.format(recupVal);
+    var ctx=$('tool-context');
+    if(ctx)ctx.value='Paniers/mois '+carts+' | Abandon '+(abandon*100)+'% | Panier '+panier+'EUR | Recup '+(recup*100)+'% | Perdu/an '+Math.round(an)+' | Recuperable/an '+Math.round(recupVal);
+  }
+  els.forEach(function(el){el.addEventListener('input',compute);});
+  compute();
+})();
+</script>

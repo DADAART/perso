@@ -1,0 +1,201 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ToolLeadForm from "../../components/ToolLeadForm.astro";
+import { breadcrumbSchema } from "../../lib/schema";
+import "../../styles/tools.css";
+
+const base = Astro.site!;
+const url = base.origin + "/outils/calculateur-croissance/";
+const title = "Calculateur de croissance e-commerce (gratuit) | VONAV";
+const description =
+  "Estimez le chiffre d'affaires que votre boutique peut générer en plus, à trafic constant, en jouant sur la conversion, le panier moyen et la fréquence d'achat.";
+const schemas = [
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Outils", url: base.origin + "/outils/" },
+    { name: "Calculateur de croissance", url },
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Calculateur de croissance e-commerce",
+    url,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+    description,
+    provider: { "@type": "Organization", name: "VONAV", url: base.origin + "/" },
+  },
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <section class="vn-host">
+    <div class="vn-wrap">
+      <header>
+        <p class="vn-eyebrow">VONAV · Outil gratuit</p>
+        <h1>Combien votre boutique peut générer en plus.</h1>
+        <p class="vn-sub">À trafic constant — sans acheter une seule visite de plus. Entrez vos chiffres, jouez sur les trois leviers, voyez le résultat.</p>
+      </header>
+      <div class="vn-calc">
+        <section class="vn-card" aria-label="Vos paramètres">
+          <h2>Votre boutique aujourd'hui</h2>
+          <p class="vn-hint">Des estimations suffisent. Les chiffres restent dans votre navigateur.</p>
+          <div class="vn-field">
+            <label for="visiteurs">Visiteurs par mois</label>
+            <div class="vn-input"><input id="visiteurs" type="number" min="0" step="100" value="10000" inputmode="numeric"><span class="vn-unit">/ mois</span></div>
+          </div>
+          <div class="vn-field">
+            <label for="cvr">Taux de conversion actuel</label>
+            <div class="vn-input"><input id="cvr" type="number" min="0" max="100" step="0.1" value="1.8" inputmode="decimal"><span class="vn-unit">%</span></div>
+          </div>
+          <div class="vn-field">
+            <label for="panier">Panier moyen</label>
+            <div class="vn-input"><input id="panier" type="number" min="0" step="1" value="65" inputmode="decimal"><span class="vn-unit">€</span></div>
+          </div>
+          <div class="vn-field">
+            <label for="freq">Commandes par client / an</label>
+            <div class="vn-input"><input id="freq" type="number" min="1" step="0.1" value="1.3" inputmode="decimal"><span class="vn-unit">cmd</span></div>
+          </div>
+          <div class="vn-divider"></div>
+          <h2>Vos objectifs</h2>
+          <p class="vn-hint">De combien comptez-vous améliorer chaque levier ?</p>
+          <div class="vn-slider">
+            <div class="vn-srow"><span class="vn-slabel">Conversion</span><span class="vn-sval" id="v-cvr">+0,6 pt</span></div>
+            <input id="s-cvr" type="range" min="0" max="2" step="0.1" value="0.6" aria-label="Amélioration du taux de conversion en points">
+            <span class="vn-starget" id="t-cvr"></span>
+          </div>
+          <div class="vn-slider">
+            <div class="vn-srow"><span class="vn-slabel">Panier moyen</span><span class="vn-sval" id="v-panier">+8 %</span></div>
+            <input id="s-panier" type="range" min="0" max="30" step="1" value="8" aria-label="Amélioration du panier moyen en pourcentage">
+            <span class="vn-starget" id="t-panier"></span>
+          </div>
+          <div class="vn-slider">
+            <div class="vn-srow"><span class="vn-slabel">Fréquence d'achat</span><span class="vn-sval" id="v-freq">+15 %</span></div>
+            <input id="s-freq" type="range" min="0" max="50" step="1" value="15" aria-label="Amélioration de la fréquence d'achat en pourcentage">
+            <span class="vn-starget" id="t-freq"></span>
+          </div>
+        </section>
+        <section class="vn-readout" aria-live="polite">
+          <p class="vn-rk">Chiffre d'affaires annuel</p>
+          <div class="vn-rrow"><span class="vn-rlab">Aujourd'hui</span><span class="vn-rfig" id="r-actuel">—</span></div>
+          <div class="vn-rrow"><span class="vn-rlab">Avec vos objectifs</span><span class="vn-rfig" id="r-projete">—</span></div>
+          <div class="vn-gain">
+            <p class="vn-glab">Gain de CA par an</p>
+            <div class="vn-gfig" id="r-gain">—</div>
+            <p class="vn-gpct">soit <b id="r-pct">—</b> de chiffre d'affaires en plus</p>
+          </div>
+          <div class="vn-levers">
+            <div class="vn-levbar" role="img" aria-label="Répartition du gain entre les trois leviers">
+              <span class="vn-seg-c" id="seg-c" style="width:33%"></span><span class="vn-seg-p" id="seg-p" style="width:33%"></span><span class="vn-seg-f" id="seg-f" style="width:34%"></span>
+            </div>
+            <div class="vn-legend">
+              <span><i class="vn-seg-c"></i>Conversion <b id="lg-c">—</b></span>
+              <span><i class="vn-seg-p"></i>Panier <b id="lg-p">—</b></span>
+              <span><i class="vn-seg-f"></i>Fréquence <b id="lg-f">—</b></span>
+            </div>
+          </div>
+          <p class="vn-insight">Repère utile : à votre échelle, <b id="r-point">—</b> de taux de conversion gagné vaut environ <b id="r-pointval">—</b> de CA par an.</p>
+        </section>
+      </div>
+
+      <ToolLeadForm tool="Calculateur de croissance" />
+
+      <div class="vn-method">
+        <h3>Comment ce calcul fonctionne</h3>
+        <p>Votre chiffre d'affaires repose sur une équation simple. À trafic constant, trois leviers le font grandir — et comme ils se multiplient, les améliorer ensemble rapporte plus que la somme de chacun pris isolément.</p>
+        <span class="vn-eq">CA annuel = Visiteurs × Taux de conversion × Panier moyen × Fréquence d'achat</span>
+        <details class="vn-embed">
+          <summary>Intégrer ce calculateur sur votre site</summary>
+          <pre>&lt;iframe src="https://vonav.fr/outils/calculateur-croissance" width="100%" height="900" style="border:0" title="Calculateur de croissance e-commerce"&gt;&lt;/iframe&gt;
+&lt;p&gt;Outil par &lt;a href="https://vonav.fr"&gt;VONAV&lt;/a&gt;&lt;/p&gt;</pre>
+        </details>
+      </div>
+      <footer class="vn-foot">
+        <p class="vn-credit">Outil créé par <a href="/">VONAV</a> — direction e-commerce externalisée.</p>
+        <a class="vn-cta" href="/#contact">Actionner ces leviers sur ma boutique <span>→</span></a>
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+(function(){
+  "use strict";
+  var euro = new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  var pct  = function(n){ return n.toLocaleString('fr-FR',{maximumFractionDigits:0}) + ' %'; };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(id){ return document.getElementById(id); };
+  if(!$('visiteurs')) return;
+  var inEls = ['visiteurs','cvr','panier','freq'].map($);
+  var sEls  = { cvr:$('s-cvr'), panier:$('s-panier'), freq:$('s-freq') };
+  function num(el, fallback){ var v = parseFloat(el.value); return isFinite(v) ? v : fallback; }
+  var tweens = {};
+  function setFig(el, target, fmt){
+    if(reduce){ el.textContent = fmt(target); return; }
+    var key = el.id;
+    if(tweens[key]) cancelAnimationFrame(tweens[key].raf);
+    var start = tweens[key] ? tweens[key].cur : target;
+    var t0 = performance.now(), dur = 420;
+    function step(now){
+      var p = Math.min(1,(now-t0)/dur);
+      var e = 1-Math.pow(1-p,3);
+      var cur = start + (target-start)*e;
+      el.textContent = fmt(cur);
+      tweens[key] = {cur:cur, raf:0};
+      if(p<1){ tweens[key].raf = requestAnimationFrame(step); }
+      else { tweens[key].cur = target; el.textContent = fmt(target); }
+    }
+    tweens[key] = {cur:start, raf:requestAnimationFrame(step)};
+  }
+  function compute(){
+    var visiteurs = Math.max(0, num(inEls[0],0));
+    var cvr       = Math.max(0, num(inEls[1],0));
+    var panier    = Math.max(0, num(inEls[2],0));
+    var freq      = Math.max(1, num(inEls[3],1));
+    var dCvr = parseFloat(sEls.cvr.value);
+    var dPan = parseFloat(sEls.panier.value);
+    var dFrq = parseFloat(sEls.freq.value);
+    var cvrT = cvr + dCvr;
+    var panT = panier * (1 + dPan/100);
+    var frqT = freq   * (1 + dFrq/100);
+    $('v-cvr').textContent    = '+' + dCvr.toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}) + ' pt';
+    $('v-panier').textContent = '+' + dPan + ' %';
+    $('v-freq').textContent   = '+' + dFrq + ' %';
+    $('t-cvr').textContent    = 'objectif : ' + cvrT.toLocaleString('fr-FR',{maximumFractionDigits:1}) + ' %';
+    $('t-panier').textContent = 'objectif : ' + euro.format(panT);
+    $('t-freq').textContent   = 'objectif : ' + frqT.toLocaleString('fr-FR',{maximumFractionDigits:1}) + ' cmd';
+    var caBase = visiteurs*12 * (cvr/100)  * panier * freq;
+    var caTar  = visiteurs*12 * (cvrT/100) * panT   * frqT;
+    var gain   = caTar - caBase;
+    var gpct   = caBase>0 ? (gain/caBase*100) : 0;
+    setFig($('r-actuel'),  caBase, function(v){return euro.format(v);});
+    setFig($('r-projete'), caTar,  function(v){return euro.format(v);});
+    setFig($('r-gain'),    gain,   function(v){return (v>=0?'+ ':'– ')+euro.format(Math.abs(v));});
+    $('r-pct').textContent = (gpct>=0?'+':'–') + pct(Math.abs(gpct));
+    var fC = cvr>0 ? cvrT/cvr : 1;
+    var fP = panier>0 ? panT/panier : 1;
+    var fF = freq>0 ? frqT/freq : 1;
+    var lC = Math.log(fC>0?fC:1), lP = Math.log(fP>0?fP:1), lF = Math.log(fF>0?fF:1);
+    var lTot = lC+lP+lF;
+    var sC,sP,sF;
+    if(Math.abs(lTot) < 1e-9){ sC=sP=sF=0; } else { sC=lC/lTot; sP=lP/lTot; sF=lF/lTot; }
+    var pc=Math.max(0,sC), pp=Math.max(0,sP), pf=Math.max(0,sF);
+    var sum = pc+pp+pf || 1;
+    var wc=pc/sum*100, wp=pp/sum*100, wf=pf/sum*100;
+    $('seg-c').style.width = wc.toFixed(1)+'%';
+    $('seg-p').style.width = wp.toFixed(1)+'%';
+    $('seg-f').style.width = wf.toFixed(1)+'%';
+    $('lg-c').textContent = Math.round(wc)+'%';
+    $('lg-p').textContent = Math.round(wp)+'%';
+    $('lg-f').textContent = Math.round(wf)+'%';
+    var valPoint = visiteurs*12 * 0.01 * panier * freq;
+    $('r-point').textContent    = '1 point';
+    $('r-pointval').textContent = euro.format(valPoint);
+    var ctx = $('tool-context');
+    if(ctx){ ctx.value = 'Visiteurs/mois '+Math.round(visiteurs)+' | CVR '+cvr+'% (+'+dCvr+'pt) | Panier '+panier+'EUR (+'+dPan+'%) | Freq '+freq+' (+'+dFrq+'%) | CA actuel '+Math.round(caBase)+' | CA projete '+Math.round(caTar)+' | Gain/an '+Math.round(gain); }
+  }
+  inEls.forEach(function(el){ el.addEventListener('input', compute); });
+  Object.keys(sEls).forEach(function(k){ sEls[k].addEventListener('input', compute); });
+  compute();
+})();
+</script>

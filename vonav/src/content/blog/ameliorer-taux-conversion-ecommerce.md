@@ -49,3 +49,5 @@ Suivez le taux de conversion par appareil, par source de trafic et par page d'en
 ---
 
 Aucun de ces leviers n'est magique pris isolément ; c'est leur accumulation qui fait bouger la courbe. Et avant d'investir plus en acquisition, regardez toujours d'abord [comment réduire votre coût d'acquisition](/blog/reduire-cout-acquisition-cac-ecommerce/) et [comment fidéliser vos clients existants](/blog/fidelisation-retention-ecommerce/) — c'est souvent là que se trouve l'argent facile. Envie qu'on regarde votre boutique ensemble ? L'[audit est gratuit](/#contact).
+
+> 🧮 **Passez vos chiffres au calcul** : le [calculateur de croissance e-commerce](/outils/calculateur-croissance/) estime, à trafic constant, le chiffre d'affaires que votre boutique peut générer en plus.

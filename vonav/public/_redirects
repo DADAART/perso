@@ -1,0 +1,12 @@
+# Redirections Cloudflare Pages (exécutées avant les assets statiques)
+
+# Hôte canonique unique : www -> apex (301)
+https://www.vonav.fr/* https://vonav.fr/:splat 301
+
+# Anciennes pages du repositionnement -> accueil (301, remplace les meta-refresh)
+/vignerons / 301
+/vignerons/ / 301
+/hebergeurs / 301
+/hebergeurs/ / 301
+/caves-destinations / 301
+/caves-destinations/ / 301

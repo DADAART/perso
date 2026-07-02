@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
   <div class="wrap footer__bottom">
     <span>© {year} {SITE.name} — {NAP.founder}</span>
     <span>
-      Micro-entreprise · SIRET {PLACEHOLDERS.SIRET} ·
+      Micro-entreprise · {PLACEHOLDERS.SIRET === "SIRET_A_COMPLETER" ? "immatriculation en cours" : `SIRET ${PLACEHOLDERS.SIRET}`} ·
       <a href="/mentions-legales">Mentions légales</a> ·
       <a href="/politique-confidentialite">Confidentialité</a> ·
       <a href="#tarteaucitron" id="tarteaucitronManager">Gérer les cookies</a>

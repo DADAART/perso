@@ -4,7 +4,7 @@ import { SITE, NAP, PLACEHOLDERS } from "../data/site";
 
 const title = `Mentions légales | ${SITE.name}`;
 const description = `Mentions légales du site ${SITE.name} — éditeur, hébergeur, propriété intellectuelle et conditions d'utilisation.`;
-const updated = "23 juin 2026";
+const updated = "2 juillet 2026";
 ---
 <BaseLayout title={title} description={description} noindex={false}>
   <section class="page-hero">
@@ -27,7 +27,7 @@ const updated = "23 juin 2026";
         <li>Siège / lieu d'exercice : {NAP.address.locality} ({NAP.address.regionCode}), {NAP.address.region}, France</li>
         <li>Adresse e-mail : <a href={`mailto:${NAP.email}`}>{NAP.email}</a></li>
         <li>Téléphone : <a href={`tel:${NAP.phoneE164}`}>{NAP.phoneDisplay}</a></li>
-        <li>SIRET : {PLACEHOLDERS.SIRET}</li>
+        <li>SIRET : {PLACEHOLDERS.SIRET === "SIRET_A_COMPLETER" ? "immatriculation en cours — le numéro sera publié dès son attribution" : PLACEHOLDERS.SIRET}</li>
         <li>TVA : non applicable, article 293 B du Code général des impôts (franchise en base).</li>
       </ul>
 

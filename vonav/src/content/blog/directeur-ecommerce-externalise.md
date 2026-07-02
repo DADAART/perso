@@ -21,7 +21,7 @@ Dit autrement : vous ne payez pas pour un canal isolé, vous payez pour **quelqu
 - Vous **vendez déjà en ligne** mais la croissance plafonne et personne en interne n'a le temps (ou le recul) de la relancer.
 - Vous **jonglez avec plusieurs prestataires** sans vision d'ensemble : chacun optimise son bout, le résultat global stagne.
 - Vous **lancez ou refondez** une boutique et voulez éviter les erreurs coûteuses dès le départ.
-- Un **CDI de responsable e-commerce** (souvent 50 000 à 90 000 € chargé) est prématuré, trop cher ou trop risqué pour votre stade.
+- Un **CDI de directeur e-commerce** (souvent 70 000 à 110 000 € chargé) est prématuré, trop cher ou trop risqué pour votre stade.
 
 ## Ce que ça change par rapport à une agence
 

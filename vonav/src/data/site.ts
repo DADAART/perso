@@ -69,7 +69,7 @@ export const SITE = {
   /** Image Open Graph par défaut (dans /public/og/) */
   defaultOgImage: "/og/vonav-og.png",
   social: {
-    linkedin: "https://www.linkedin.com/", // ⚠️ à remplacer par l'URL réelle
+    linkedin: "https://www.linkedin.com/in/charlelie-borel/",
   },
 } as const;
 

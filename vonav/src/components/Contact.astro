@@ -16,6 +16,11 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
         <span>Réponse sous 48 h</span>
         <span>Vos informations restent confidentielles</span>
       </div>
+      {PLACEHOLDERS.BOOKING_URL && (
+        <a class="btn btn--ghost" style="margin-top:1.6rem" href={PLACEHOLDERS.BOOKING_URL} target="_blank" rel="noopener">
+          Ou réservez directement 30 min <span class="arr">→</span>
+        </a>
+      )}
     </div>
     <div class="reveal">
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
@@ -40,7 +45,19 @@ import { PLACEHOLDERS, NAP, SITE } from "../data/site";
             </select>
           </div>
         </div>
-        <div class="field"><label for="site">Votre site actuel <span style="text-transform:none;letter-spacing:0">(facultatif)</span></label><input id="site" name="site" type="text" placeholder="https://…" /></div>
+        <div class="field row">
+          <div class="field"><label for="site">Votre site actuel <span style="text-transform:none;letter-spacing:0">(facultatif)</span></label><input id="site" name="site" type="text" placeholder="https://…" /></div>
+          <div class="field"><label for="ca">Votre CA annuel en ligne</label>
+            <select id="ca" name="ca_annuel" required>
+              <option value="" selected disabled>Choisir…</option>
+              <option>Je lance mon activité</option>
+              <option>Moins de 300 k€</option>
+              <option>300 k€ – 1 M€</option>
+              <option>1 M€ – 10 M€</option>
+              <option>Plus de 10 M€</option>
+            </select>
+          </div>
+        </div>
         <div class="field"><label for="message">En deux mots, votre objectif</label><textarea id="message" name="message" placeholder="Augmenter mes ventes, refondre ma boutique, structurer mon e-commerce…"></textarea></div>
 
         <div class="hp-field" aria-hidden="true">

@@ -14,7 +14,11 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Je débute, je n'ai pas encore de boutique. C'est pour moi ?",
-    a: "Oui. Je peux créer ou refondre votre boutique Shopify, puis la piloter dans la durée. On commence par l'audit gratuit pour cadrer le besoin et le bon niveau d'accompagnement.",
+    a: "La direction externalisée est pensée pour les boutiques qui font déjà du chiffre (souvent entre 300 k€ et 10 M€ en ligne). Si vous lancez ou refondez, je peux construire votre boutique Shopify (offre Mise en route) puis la piloter — à condition qu'il y ait un vrai projet commercial derrière. L'audit gratuit sert à cadrer ça honnêtement : si ce n'est pas le bon moment, je vous le dis.",
+  },
+  {
+    q: "Combien de clients accompagnez-vous en parallèle ?",
+    a: "Peu, volontairement. Le temps partagé ne fonctionne que si chaque marque a de vraies plages dédiées — je limite donc le nombre d'accompagnements simultanés, quitte à proposer une liste d'attente plutôt qu'un démarrage bâclé.",
   },
   {
     q: "Vous travaillez à distance ?",

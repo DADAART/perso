@@ -17,6 +17,12 @@ export const PLACEHOLDERS = {
   FORM_BACKEND_ID: "8289a198-64a0-4eb4-ae8f-423ce4dfa5ff",
   /** SIRET de la micro-entreprise (pas encore attribué) */
   SIRET: "SIRET_A_COMPLETER",
+  /**
+   * URL de prise de RDV (Calendly, Cal.com…).
+   * Laisser vide tant qu'il n'y en a pas : le bouton « Réserver 30 min »
+   * de la section contact ne s'affiche que si cette URL est renseignée.
+   */
+  BOOKING_URL: "" as string,
 } as const;
 
 /* ============================================================

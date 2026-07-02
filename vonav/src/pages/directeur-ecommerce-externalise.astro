@@ -1,0 +1,246 @@
+---
+/**
+ * Page de vente — « Directeur e-commerce externalisé ».
+ * Cible le mot-clé principal du positionnement avec une vraie page de
+ * conversion (formules, FAQ dédiée, formulaire), là où l'article de blog
+ * ne fait qu'informer.
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Contact from "../components/Contact.astro";
+import { SITE } from "../data/site";
+import { serviceSchema, breadcrumbSchema, faqPageSchema } from "../lib/schema";
+
+const base = Astro.site!;
+const pageUrl = new URL("/directeur-ecommerce-externalise/", base).href;
+
+const title = "Directeur e-commerce externalisé — la direction, sans le recrutement | VONAV";
+const description =
+  "Un directeur e-commerce externalisé, à temps partagé : stratégie, acquisition, conversion (CRO), rétention et pilotage de vos prestataires. Formules dès 3 000 €/mois, partout en France.";
+
+const PAGE_FAQ = [
+  {
+    q: "Directeur e-commerce externalisé, à temps partagé, fractional : c'est la même chose ?",
+    a: "Oui. Trois noms pour un même modèle : un profil senior qui prend la direction de votre e-commerce quelques jours par semaine, au lieu d'un poste à plein temps. Vous achetez un résultat piloté, pas un salarié.",
+  },
+  {
+    q: "Pour quel type d'entreprise est-ce pensé ?",
+    a: "Des marques et e-commerçants qui font entre 300 k€ et 10 M€ de chiffre d'affaires en ligne — assez de volume pour que chaque point de conversion gagné se compte en milliers d'euros, pas encore la taille qui justifie une direction e-commerce salariée à plein temps.",
+  },
+  {
+    q: "Combien de temps avant de voir des résultats ?",
+    a: "Les premiers gains (conversion, quick wins d'acquisition, relances e-mail) se mesurent en général dans les 2 à 3 premiers mois. Les effets structurels — rétention, coût d'acquisition, marge — se construisent sur 6 à 12 mois. C'est pourquoi je recommande un engagement initial de 6 mois.",
+  },
+  {
+    q: "Vous remplacez notre agence actuelle ?",
+    a: "Non — sauf si elle sous-performe, et on le verra dans les chiffres. Mon rôle est justement de piloter vos prestataires : leur fixer des objectifs, vérifier ce que chaque euro rapporte, et faire travailler tout le monde dans le même sens. Souvent, une bonne agence devient meilleure quand quelqu'un tient le cap côté client.",
+  },
+  {
+    q: "Combien de clients accompagnez-vous en parallèle ?",
+    a: "Peu, volontairement : le temps partagé ne fonctionne que si chaque marque a de vraies plages dédiées. Je limite le nombre d'accompagnements simultanés, quitte à proposer une liste d'attente.",
+  },
+  {
+    q: "Et si ça ne marche pas ?",
+    a: "Tout est mesuré chaque mois : ce que je coûte doit être dépassé par ce que je rapporte. Si les chiffres ne suivent pas, on le voit vite, on en parle honnêtement — et vous n'êtes pas enfermé dans un contrat de longue durée.",
+  },
+];
+
+const schemas = [
+  serviceSchema(base, {
+    name: "Direction e-commerce externalisée",
+    serviceType: "Directeur e-commerce externalisé à temps partagé",
+    description,
+    url: pageUrl,
+  }),
+  breadcrumbSchema([
+    { name: "Accueil", url: base.origin + "/" },
+    { name: "Directeur e-commerce externalisé", url: pageUrl },
+  ]),
+  faqPageSchema(PAGE_FAQ),
+];
+---
+<BaseLayout title={title} description={description} schemas={schemas}>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="wrap page-hero__inner">
+      <span class="eyebrow">Direction e-commerce externalisée</span>
+      <h1>Directeur e-commerce externalisé : la séniorité d'une direction, quelques jours par semaine.</h1>
+      <p>
+        Votre e-commerce mérite quelqu'un qui tient le volant — stratégie, acquisition, conversion,
+        rétention, prestataires — sans le coût ni l'engagement d'un recrutement à 70 000–110 000 € chargé.
+        C'est exactement ce que je fais, à distance, partout en France.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn--primary">Recevoir mon audit gratuit <span class="arr">→</span></a>
+        <a href="#formules" class="btn btn--ghost">Voir les formules</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Le rôle -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">Le rôle</span>
+      <h2 class="reveal">Un seul responsable du résultat global.</h2>
+      <p class="lead reveal">
+        Une agence optimise son canal. Un freelance exécute sa mission. Un directeur e-commerce
+        externalisé, lui, est <strong>embarqué dans votre équipe</strong> et répond du chiffre :
+        il décide de la feuille de route, pilote l'exécution et vous rend des comptes chaque mois.
+      </p>
+      <div class="offers__grid">
+        <div class="offer reveal">
+          <h3>Acquisition rentable</h3>
+          <p class="offer__desc">SEO, publicité, emailing — pilotés à la marge et au coût d'acquisition, pas aux impressions. On coupe ce qui gaspille.</p>
+        </div>
+        <div class="offer reveal">
+          <h3>Conversion (CRO)</h3>
+          <p class="offer__desc">Tunnel d'achat, fiches produits, panier, mobile : vendre plus au trafic que vous payez déjà. Souvent le levier le plus rentable.</p>
+        </div>
+        <div class="offer reveal">
+          <h3>Rétention &amp; valeur client</h3>
+          <p class="offer__desc">Email, CRM, fidélité, post-achat : faire revenir vos clients et faire grandir leur valeur (LTV) — la croissance la moins chère.</p>
+        </div>
+        <div class="offer reveal">
+          <h3>Pilotage &amp; prestataires</h3>
+          <p class="offer__desc">Vos agences et freelances alignés sur un seul objectif, un tracking propre, un reporting lisible orienté chiffre d'affaires et marge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pour qui -->
+  <section class="section" style="background:var(--cream)">
+    <div class="wrap">
+      <span class="eyebrow reveal">Pour qui</span>
+      <h2 class="reveal">Pensé pour les boutiques entre 300 k€ et 10 M€ en ligne.</h2>
+      <p class="lead reveal">
+        C'est la zone où le modèle rend le plus : assez de volume pour que chaque point de conversion
+        gagné se chiffre en milliers d'euros, pas encore la taille qui justifie une direction salariée
+        à plein temps. Trois situations typiques :
+      </p>
+      <div class="prose reveal">
+        <ul>
+          <li><strong>La croissance plafonne</strong> : du trafic, des commandes, mais un coût d'acquisition qui grimpe et personne pour relancer la machine.</li>
+          <li><strong>Trop de prestataires, pas de cap</strong> : une agence pub, un dev, un consultant SEO — chacun optimise son bout, le résultat global stagne.</li>
+          <li><strong>Un cap à passer</strong> : internationalisation, refonte, nouvelle gamme — et besoin d'un regard senior pour éviter les erreurs coûteuses.</li>
+        </ul>
+        <p>
+          <strong>Ce n'est pas pour vous si</strong> vous cherchez uniquement un exécutant pour produire
+          des campagnes ou du code (dans ce cas, une bonne agence suffit — je peux vous aider à la choisir
+          et à la piloter), ou si votre activité en ligne démarre tout juste sans projet commercial structuré.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formules -->
+  <section class="section" id="formules">
+    <div class="wrap">
+      <span class="eyebrow reveal">Les formules</span>
+      <h2 class="reveal">Un cadre simple, un engagement mesuré chaque mois.</h2>
+      <div class="offers__grid">
+        <div class="offer reveal">
+          <h3>Essentiel — 1 jour / semaine</h3>
+          <p class="offer__desc">Le pilotage : feuille de route, priorisation, suivi des chiffres, optimisation continue de la boutique, reporting mensuel.</p>
+          <div class="offer__price">3 000 € <small>/ mois</small></div>
+        </div>
+        <div class="offer offer--feature reveal">
+          <span class="offer__flag">Le plus choisi</span>
+          <h3>Croissance — 2 jours / semaine</h3>
+          <p class="offer__desc">Pilotage + exécution des leviers clés : acquisition (SEO, publicité, emailing), sprints CRO, lancements et opérations saisonnières.</p>
+          <div class="offer__price">5 000 € <small>/ mois</small></div>
+        </div>
+        <div class="offer reveal">
+          <h3>Direction renforcée — 3 jours / semaine</h3>
+          <p class="offer__desc">Pour les phases denses : refonte, internationalisation, structuration d'équipe. Périmètre défini ensemble.</p>
+          <div class="offer__price">sur devis</div>
+        </div>
+      </div>
+      <p class="lead reveal" style="margin-top:2rem">
+        Engagement initial conseillé : 6 mois — le temps que les leviers structurels produisent.
+        La règle reste la même chaque mois : <strong>ce que je rapporte doit dépasser ce que je coûte</strong>,
+        et c'est mesuré. Chiffrez votre potentiel avec le
+        <a href="/outils/calculateur-croissance/">calculateur de croissance</a> ou le
+        <a href="/outils/calculateur-cac-ltv/">calculateur CAC / LTV</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Méthode -->
+  <section class="section" style="background:var(--cream)">
+    <div class="wrap">
+      <span class="eyebrow reveal">Comment ça se passe</span>
+      <h2 class="reveal">De l'audit aux résultats, en quatre temps.</h2>
+      <div class="method__grid">
+        <div class="step reveal">
+          <span class="step__n">01 — Audit</span>
+          <h3>État des lieux chiffré</h3>
+          <p>Boutique, acquisition, conversion, données : j'analyse votre e-commerce et je chiffre le potentiel.</p>
+          <span class="step__free">Offert</span>
+        </div>
+        <div class="step reveal">
+          <span class="step__n">02 — Feuille de route</span>
+          <h3>Un plan priorisé</h3>
+          <p>Quoi faire, dans quel ordre, pour quel retour attendu. Clair, chiffré, sans promesse en l'air.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__n">03 — Pilotage</span>
+          <h3>Je prends les commandes</h3>
+          <p>Acquisition, CRO, rétention, prestataires : j'exécute et j'orchestre chaque semaine. Vous validez l'essentiel.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__n">04 — Reporting</span>
+          <h3>On amplifie ce qui marche</h3>
+          <p>Un reporting orienté chiffre d'affaires et marge, chaque mois. On ajuste, on coupe, on amplifie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vs agence / freelance -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">Bien choisir</span>
+      <h2 class="reveal">Agence, freelance ou directeur externalisé ?</h2>
+      <div class="prose reveal">
+        <p>
+          Les trois se complètent — la vraie question est : <strong>qu'est-ce qui vous manque ?</strong>
+          Une capacité d'exécution sur un canal, c'est une agence. Une compétence précise et ponctuelle,
+          c'est un freelance. Quelqu'un qui tient la stratégie, arbitre et pilote l'ensemble — c'est une
+          direction externalisée. Le meilleur montage, souvent : un directeur à la barre, des agences à
+          l'exécution.
+        </p>
+        <p>
+          J'ai détaillé les forces, limites et coûts de chaque option dans ce comparatif :
+          <a href="/blog/agence-freelance-ou-directeur-ecommerce-externalise/">agence, freelance ou directeur e-commerce externalisé — que choisir ?</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--cream)">
+    <div class="wrap">
+      <span class="eyebrow reveal">Questions fréquentes</span>
+      <h2 class="reveal">Avant de vous décider.</h2>
+      <div class="faq__list reveal">
+        {PAGE_FAQ.map((item) => (
+          <details class="faq__item">
+            <summary>{item.q}<span class="ico" aria-hidden="true"></span></summary>
+            <div class="faq__answer">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+</BaseLayout>
+
+<style>
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.8rem;
+  }
+</style>

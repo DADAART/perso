@@ -22,7 +22,7 @@ export const PLACEHOLDERS = {
    * Laisser vide tant qu'il n'y en a pas : le bouton « Réserver 30 min »
    * de la section contact ne s'affiche que si cette URL est renseignée.
    */
-  BOOKING_URL: "" as string,
+  BOOKING_URL: "https://calendly.com/chaborel/30min" as string,
 } as const;
 
 /* ============================================================
